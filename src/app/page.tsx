@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import ProductCard from "./components/ProductCard";
 import { useShopStore } from "./memory/shop";
 import { supabase } from "@/lib/supabase";
+import UserLoader from "./account/LoginUser";
 
 export default function LandingPage() {
   // const router = useRouter();
@@ -41,6 +42,7 @@ export default function LandingPage() {
     <main className="p-6">
       <div className="flex justify-between mb-4">
         <h1 className="text-2xl font-bold">Medical Shop</h1>
+        <UserLoader />
         <div>
           {user ? (
             <>

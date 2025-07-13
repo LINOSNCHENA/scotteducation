@@ -13,10 +13,11 @@ export function BothMenus() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const routingItems = [
+    { path: "/", label: "Products" },
     { path: "/account", label: "Account" },
-    { path: "/downloads", label: "Downloads" },
-    { path: "/cart", label: "ShoppingBag" },
-    { path: "/", label: "Home" },
+    { path: "/dashboard", label: "Dashboard" },
+    { path: "/cart", label: "Shopping" },
+    { path: "/admin", label: "Admin" },
     { path: "/login", label: "Login" },
   ];
 
@@ -24,8 +25,8 @@ export function BothMenus() {
     () => [
       { id: "motto", label: "Mission" },
       { id: "services", label: "Services" },
-      { id: "projects", label: "Project" },
-      { id: "reviews", label: "Reviews" },
+      { id: "register", label: "register" },
+      { id: "auth", label: "Auths" },
       { id: "cart", label: "Cart" },
       { id: "product", label: "Product" },
       { id: "contact", label: "Contacts" },

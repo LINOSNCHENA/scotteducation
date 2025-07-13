@@ -30,3 +30,14 @@ export const useShopStore = create<ShopState>((set) => ({
     removeFromCart: (productId) =>
         set((state) => ({ cart: state.cart.filter((id) => id !== productId) })),
 }));
+
+
+type UserStore = {
+    user: User | null;
+    setUser: (user: User | null) => void;
+};
+
+export const useUserStore = create<UserStore>((set) => ({
+    user: null,
+    setUser: (user) => set({ user }),
+}));
