@@ -1,9 +1,40 @@
 "use client";
+import { useState } from "react";
 import { supabase } from "@/lib/supabase";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
-  // const router = useRouter();
+export default function AuthPage() {
+  const router = useRouter();
+  const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const handleAuth = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    let error = null;
+
+    if (isLogin) {
+      ({ error } = await supabase.auth.signInWithPassword({ email, password }));
+    } else {
+      ({ error } = await supabase.auth.signUp({ email, password }));
+    }
+
+    setLoading(false);
+
+    if (error) {
+      alert(error.message);
+      console.error("Auth error:", error.message);
+    } else {
+      if (isLogin) {
+        router.push("/dashboard");
+      } else {
+        alert("Registration successful. Please check your email to confirm.");
+        setIsLogin(true);
+      }
+    }
+  };
 
   const loginWithGoogle = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
@@ -14,16 +45,64 @@ export default function LoginPage() {
     });
 
     if (error) {
-      console.error("Login error:", error);
-      alert("Google login failed");
+      console.error("Google login error:", error.message);
+      alert("Google login failed.");
     }
   };
 
   return (
-    <div className="p-6 text-center">
-      <button onClick={loginWithGoogle} className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-        Sign in with Google
-      </button>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="bg-white p-8 rounded-xl shadow-xl w-full max-w-md space-y-6">
+        <h1 className="text-2xl font-bold text-center text-gray-800">{isLogin ? "Login to Your Account" : "Create an Account"}</h1>
+
+        <form onSubmit={handleAuth} className="space-y-4">
+          <input
+            type="email"
+            placeholder="Email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button type="submit" disabled={loading} className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+            {loading ? (isLogin ? "Logging in..." : "Registering...") : isLogin ? "Login" : "Register"}
+          </button>
+        </form>
+
+        <div className="flex items-center justify-between">
+          <hr className="w-full border-gray-300" />
+          <span className="px-2 text-sm text-gray-500">or</span>
+          <hr className="w-full border-gray-300" />
+        </div>
+
+        <button onClick={loginWithGoogle} className="w-full flex items-center justify-center gap-2 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition">
+          <svg className="w-5 h-5" viewBox="0 0 48 48">
+            <path
+              fill="#FFC107"
+              d="M43.6 20.5H42V20H24v8h11.3C33.2 32.2 29 35 24 35c-6.1 0-11-4.9-11-11s4.9-11 11-11c2.8 0 5.4 1 7.4 2.8l6-6C33.1 6.7 28.8 5 24 5 12.9 5 4 13.9 4 25s8.9 20 20 20c11 0 19.8-8.4 19.8-19 0-1.2-.1-2.2-.2-3.2z"
+            />
+            <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.4 16 18.9 13 24 13c2.8 0 5.4 1 7.4 2.8l6-6C33.1 6.7 28.8 5 24 5c-7.2 0-13.4 3.6-17.1 9.1l-.6.6z" />
+            <path fill="#4CAF50" d="M24 45c5.4 0 10.3-2.1 13.9-5.5l-6.4-5.4C29.2 35.6 26.7 37 24 37c-5.1 0-9.4-3.3-10.9-7.9l-6.6 5.1C9.9 41.5 16.4 45 24 45z" />
+            <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-1.3 3.4-4 6-7.3 7.4l6.4 5.4C39.1 37.5 43.8 32.3 43.8 25c0-1.5-.1-2.9-.2-4.5z" />
+          </svg>
+          Sign in with Google
+        </button>
+
+        <p className="text-center text-sm text-gray-500">
+          {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
+          <button onClick={() => setIsLogin(!isLogin)} className="text-blue-600 hover:underline font-medium">
+            {isLogin ? "Register here" : "Login here"}
+          </button>
+        </p>
+      </div>
     </div>
   );
 }

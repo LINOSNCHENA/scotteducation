@@ -28,7 +28,7 @@ export default function CartPage() {
         <div className="mb-6 border border-gray-200 rounded p-4 bg-gray-50">
           <h2 className="text-lg font-semibold">User Details</h2>
           <p>
-            <strong>Name:</strong> {user.full_name}
+            <strong>Name:</strong> {user.email}
           </p>
           <p>
             <strong>Email:</strong> {user.email}

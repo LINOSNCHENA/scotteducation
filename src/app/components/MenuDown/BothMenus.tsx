@@ -17,6 +17,7 @@ export function BothMenus() {
     { path: "/downloads", label: "Downloads" },
     { path: "/cart", label: "ShoppingBag" },
     { path: "/", label: "Home" },
+    { path: "/login", label: "Login" },
   ];
 
   const singlePageItems = useMemo(

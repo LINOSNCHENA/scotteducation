@@ -57,6 +57,9 @@ troopers.reports@gmail.com
 dianaphirin@gmail.com
 dianaphirin@gmail.comQ1
 
+troopers.directorate@gmail.com
+
+
 npm install react-to-pdf @react-pdf/renderer
 npm install react-to-pdf @react-pdf/renderer
 npm install react-to-print @types/react-to-print --save-dev
