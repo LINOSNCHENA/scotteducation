@@ -1,5 +1,5 @@
 import { IReview } from "@/types/Models.subscriptions";
-import { COMP_ICON_LOGO } from "./ApiRoutes";
+import { COMP_ICON_LOGO } from "./Branding/ApiRoutes";
 
 export const UtilClients: IReview[] = [
     {

@@ -1,6 +1,9 @@
-// import { IContactFormEmailProps } from "@/app/types/Models.subscriptions";
-import { COMP_ICON_1URL, COMP_3SITE } from "@/app/utils/ApiRoutes";
-import { COMP_NAME, COMP_MOTTO } from "@/app/utils/NexusData";
+//
+// data
+//
+
+import { COMP_ICON_1URL, COMP_3SITE } from "@/app/utils/Branding/ApiRoutes";
+import { COMP_MOTTO, COMP_NAME } from "@/app/utils/Branding/DataYoung";
 import { IContactFormEmailProps } from "@/types/Models.subscriptions";
 import { Html, Head, Preview, Body, Container, Section, Img, Text, Row, Column } from "@react-email/components";
 

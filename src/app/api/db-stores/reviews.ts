@@ -1,7 +1,7 @@
 //
 // Reviews  api
 
-import { API_DBASE_STORES } from "@/app/utils/ApiRoutes";
+import { API_DBASE_STORES } from "@/app/utils/Branding/ApiRoutes";
 import { formatDateZM } from '@/app/utils/Functions';
 import { supabase } from "@/lib/supabase";
 import { IOrderRequest } from "@/types/models.eshop";

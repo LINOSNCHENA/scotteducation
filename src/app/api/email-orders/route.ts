@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
-import { resend3Key, EMAIL_MASTER } from "@/app/utils/ApiRoutes";
+import { resend3Key, EMAIL_MASTER } from "@/app/utils/Branding/ApiRoutes";
 import EmailTemplate from "@/app/components/EmailTemplates/OrderEmail";
 // import { IOrderRequest, IResendSendEmailResult } from "@/types/Models.subscriptions";
 import { supabase } from "@/lib/supabase";

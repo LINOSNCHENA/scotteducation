@@ -3,7 +3,7 @@
 import { Resend } from "resend";
 import { supabase } from "@/lib/supabase";
 import { NextResponse } from "next/server";
-import { resend3Key, EMAIL_MASTER } from "@/app/utils/ApiRoutes";
+import { resend3Key, EMAIL_MASTER } from "@/app/utils/Branding/ApiRoutes";
 import SubscriptionEmail from "@/app/components/EmailTemplates/SubscriptionEmail";
 import { ISubscription, IResendSendEmailResult } from "@/types/Models.subscriptions";
 const resend = new Resend(resend3Key);

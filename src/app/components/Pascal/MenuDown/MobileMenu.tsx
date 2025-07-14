@@ -4,8 +4,8 @@ import Link from "next/link";
 import { FaPhoneAlt, FaEnvelope, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import styles from "./css/stylesMobile.module.css";
-import { COMP_EMAIL, COMP_MOBILE, COMP_NAME } from "@/app/utils/NexusData";
-import { COMP_ICON_LOGO } from "@/app/utils/ApiRoutes";
+import { COMP_EMAIL, COMP_MOBILE, COMP_NAME } from "@/app/utils/Branding/DataPascal";
+import { COMP_ICON_LOGO } from "@/app/utils/Branding/ApiRoutes";
 
 interface MobileMenuProps {
   isOpen: boolean;

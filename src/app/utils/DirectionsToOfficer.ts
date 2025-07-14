@@ -1,4 +1,6 @@
-import { COMP_ADDRESS } from "./NexusData";
+// import { COMP_ADDRESS } from "./Branding/NexusData";
+
+import { COMP_ADDRESS } from "./Branding/DataPascal";
 
 // Lusaka, Zambia coordinates (city center)
 export type Route = {
@@ -20,7 +22,7 @@ export const OFFICE_LOCATIONS = {
     mandaHillRoute: {
         origin: "Manda Hill Shopping Centre, Great East Road, Lusaka",
         destination: COMP_ADDRESS,
-        description: "Route from Lusaka's largest shopping mall"
+        description: "Route from Lusaka's largest shopping mall (Manda Hill)"
     },
 
     // From the university

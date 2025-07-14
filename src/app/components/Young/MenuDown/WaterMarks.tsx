@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { COMP_ICON_LOGO } from "@/app/utils/ApiRoutes";
+import { COMP_ICON_LOGO } from "@/app/utils/Branding/ApiRoutes";
 
 interface WatermarkBackgroundProps {
   altText?: string;

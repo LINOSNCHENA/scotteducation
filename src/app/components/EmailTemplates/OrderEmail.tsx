@@ -1,6 +1,10 @@
-// import { IContactFormEmailProps } from "@/app/types/Models.subscriptions";
-import { COMP_ICON_1URL, COMP_3SITE } from "@/app/utils/ApiRoutes";
-import { COMP_ADDRESS, COMP_MOTTO, COMP_NAME } from "@/app/utils/NexusData";
+
+//
+// Data
+//
+
+import { COMP_ICON_1URL, COMP_3SITE } from "@/app/utils/Branding/ApiRoutes";
+import { COMP_ADDRESS, COMP_MOTTO, COMP_NAME } from "@/app/utils/Branding/DataYoung";
 import { IContactFormEmailProps } from "@/types/Models.subscriptions";
 import { Html, Button, Text, Head, Body, Container, Section, Row, Column, Img, Hr } from "@react-email/components";
 
@@ -22,23 +26,7 @@ export default function EmailTemplate({ username, message, senderEmail }: IConta
           </Section>
 
           {/* Main Content */}
-          <Section style={main}>
-            {/*           <Text style={greeting}>Hello Troopers,</Text>
-            <Text style={paragraph}>
-              Thank you for your product services offering options. I have read your website and make a choice. Below are my selectison from your offerings team and i WILL AWAIT
-              YOU .
-            </Text>
-            <Section style={messageBox}>
-              <Text style={messageLabel}>Order Details :</Text>
-              <Text style={messageContent}>{message}</Text>
-              {senderEmail && (
-                <Text style={contactInfo}>
-                  You can respond or answer my question on to my requeston my email. l&apos;m at: <strong>{senderEmail}</strong>
-                </Text>
-              )}
-              <Text style={greeting}>Regards,</Text>
-              <Text style={greeting}>{username},</Text>
-            </Section> */}
+          <Section style={main}>       
             <Text style={greeting}>Dear Troopers Team,</Text>
             <Text style={paragraph}>
               I hope this message finds you well. I am writing to formally confirm my interest in your website development services after reviewing the offerings listed on your

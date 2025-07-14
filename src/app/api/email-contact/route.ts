@@ -1,7 +1,7 @@
 // app/api/contact/route.ts
 
 import { ContactFormEmail } from '@/app/components/EmailTemplates/OnBoardingEmail';
-import { resend3Key, EMAIL_MASTER } from '@/app/utils/ApiRoutes';
+import { resend3Key, EMAIL_MASTER } from '@/app/utils/Branding/ApiRoutes';
 import { Resend } from 'resend';
 const masterEmail = EMAIL_MASTER
 const key = resend3Key;

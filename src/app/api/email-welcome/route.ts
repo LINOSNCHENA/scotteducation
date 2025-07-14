@@ -1,7 +1,7 @@
 // 
 // Data
 //
-import { resend3Key, EMAIL_MASTER } from "@/app/utils/ApiRoutes";
+import { resend3Key, EMAIL_MASTER } from "@/app/utils/Branding/ApiRoutes";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { EmailResponse } from "./types";

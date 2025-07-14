@@ -1,15 +1,12 @@
+import { S12AddressFooter } from "../components/Ntemba/P12FooterAddress";
+import OfficeDirections from "../components/Ntemba/P13OfficeDirection";
+import S13Footer from "../components/Ntemba/P14FooterSmall";
+import S2AboutUs from "../components/Ntemba/P2AboutUs";
 import { BothMenus } from "../components/Pascal/MenuDown/BothMenus";
-import ReviewSelect from "../components/RoutingPages/P1Reviews/ReviewsTopSix";
-import NewsletterSubscription from "../components/RoutingPages/P3Subsriptions/NewsLetter";
-// import CryptoWalletBalance from "../components/Young/CryotpWalletBalance";
-// import CryptoNewsCard from "../components/Young/CryptoNewsCard";
-// import CryptoPriceTicker from "../components/Young/CryptoPriceTicker";
+import ReviewSelect from "../components/Young/RoutingPages/P1Reviews/ReviewsTopSix";
+import NewsletterSubscription from "../components/Young/RoutingPages/P3Subsriptions/NewsLetter";
 import CryptoExchange from "../components/Young/ShopBTC";
-import { S12AddressFooter } from "../components/Zambian/P12FooterAddress";
-import OfficeDirections from "../components/Zambian/P13OfficeDirection";
-import S13Footer from "../components/Zambian/P14FooterSmall";
-import S2AboutUs from "../components/Zambian/P2AboutUs";
-import { COMP_NAME } from "../utils/NexusData";
+import { COMP_NAME } from "../utils/Branding/DataYoung";
 import styles from "./HomePage.module.css";
 
 export default function HomePage() {
