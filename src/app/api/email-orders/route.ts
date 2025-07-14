@@ -1,17 +1,15 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { resend3Key, EMAIL_MASTER } from "@/app/utils/ApiRoutes";
-import { IOrderRequest, IResendSendEmailResult } from "@/app/types/Models.subscriptions";
-import { createClient } from "@/app/composables/supabaseClient";
 import EmailTemplate from "@/app/components/EmailTemplates/OrderEmail";
-const supabase = createClient();
+import { IOrderRequest, IResendSendEmailResult } from "@/types/Models.subscriptions";
+import { supabase } from "@/lib/supabase";
+
 const masterEmail = EMAIL_MASTER;
 const key = resend3Key;
 const resend = new Resend(key);
 const TableName = 'ordersv2';
 
-// export async function POST(request: Request) {
-// To:
 export const POST = async (request: Request) => {
     try {
         console.log("Parsing order data from request...");

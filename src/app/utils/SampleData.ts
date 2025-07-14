@@ -1,4 +1,4 @@
-import { IReview } from "../types/Models.subscriptions";
+import { IReview } from "@/types/Models.subscriptions";
 import { COMP_ICON_LOGO } from "./ApiRoutes";
 
 export const UtilClients: IReview[] = [

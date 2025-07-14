@@ -1,12 +1,14 @@
-// import AdminUserTable from "@/components/AdminUserTable";
+//
+// Admin
+//
 
 "use client";
 
-import AdminUserTable from "../components/AdminTables/AdminTable";
-import AdminCarouselCart from "../components/AdminTables/CauroselCart";
-import AdminProductsPanel from "../components/AdminTables/ProductProducts";
-import AdminOrdersPanel from "../components/AdminTables/TableOrders";
-import CarouselCart from "../components/CarouselCart";
+import S2AdminUserTable from "../components/AdminTables/T2AdminTable";
+import S1AdminCarouselCart from "../components/AdminTables/T1CauroselCart";
+import S3AdminProductsPanel from "../components/AdminTables/T3ProductProducts";
+import S5ShopAdminCarouselCart from "../components/AdminTables/T5ShoppingCart";
+import S4AdminOrdersPanel from "../components/AdminTables/T4TableOrders";
 import S13Footer from "../components/LandingPages/P14FooterSmall";
 import { useShopStore } from "../memory/shop";
 
@@ -18,16 +20,16 @@ export default function AdminPage() {
 
       {userId ? (
         <>
-          <CarouselCart userId={String(userId)} />
-          <AdminCarouselCart userId={String(userId)} />
+          <S1AdminCarouselCart userId={String(userId)} />
         </>
       ) : (
         <p>Please log in to see your cart</p>
       )}
 
-      <AdminUserTable />
-      <AdminOrdersPanel />
-      <AdminProductsPanel />
+      <S5ShopAdminCarouselCart />
+      <S2AdminUserTable />
+      <S3AdminProductsPanel />
+      <S4AdminOrdersPanel />
       <S13Footer />
     </div>
   );

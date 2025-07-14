@@ -7,9 +7,10 @@ type DBUser = {
   id: string;
   email: string;
   name?: string;
+  userid?: string;
 };
 
-export default function AdminUserTable() {
+export default function F2AdminUserTable() {
   const [users, setUsers] = useState<DBUser[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingUser, setEditingUser] = useState<string | null>(null);
@@ -57,8 +58,10 @@ export default function AdminUserTable() {
   }, []);
 
   return (
-    <div className="max-w-5xl mx-auto bg-white p-6 rounded-xl shadow-md mt-8">
-      <h1 className="text-2xl font-bold mb-4 text-gray-800">🛠 Admin User Management</h1>
+    // <div className="max-w-5xl mx-auto bg-white p-6 rounded-xl shadow-md mt-8">
+    <div className="overflow-x-auto">
+      {/* </div> */}
+      <h1 className="text-2xl font-bold mb-4 text-gray-800">🛠 2. Admin User Management</h1>
 
       {loading ? (
         <p className="text-gray-600">Loading users...</p>
@@ -71,6 +74,7 @@ export default function AdminUserTable() {
               <tr>
                 <th className="px-4 py-2">ID</th>
                 <th className="px-4 py-2">Email</th>
+                <th className="px-4 py-2">UserId</th>
                 <th className="px-4 py-2">Name</th>
                 <th className="px-4 py-2">Actions</th>
               </tr>
@@ -90,6 +94,19 @@ export default function AdminUserTable() {
                       />
                     ) : (
                       user.email
+                    )}
+                  </td>
+
+                  <td className="px-4 py-2">
+                    {editingUser === user.id ? (
+                      <input
+                        type="text"
+                        value={updatedUser.userid ?? ""}
+                        onChange={(e) => setUpdatedUser({ ...updatedUser, userid: e.target.value })}
+                        className="border rounded px-2 py-1 w-full"
+                      />
+                    ) : (
+                      user.userid || "—"
                     )}
                   </td>
 

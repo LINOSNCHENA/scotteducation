@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { CarouselCartItem, Product } from "@/types/models";
 
-export default function CarouselCart({ userId }: { userId: string }) {
+export default function CarouselCart(userId: string) {
+  // export default function CarouselCart({ userId }: { userId: string }) {
   const [items, setItems] = useState<CarouselCartItem[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
 

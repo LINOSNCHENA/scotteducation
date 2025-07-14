@@ -1,12 +1,14 @@
 //
 // Reviews  api
 
-import { createClient } from '@/app/composables/supabaseClient';
-import { IOrderRequest, IReview, ISubscription, IVisit } from '@/app/types/Models.subscriptions';
+// import { createClient } from '@/app/composables/supabaseClient';
+// import { IOrderRequest, IReview, ISubscription, IVisit } from '@/app/types/Models.subscriptions';
 import { API_DBASE_STORES } from "@/app/utils/ApiRoutes";
 import { formatDateZM } from '@/app/utils/Functions';
+import { supabase } from "@/lib/supabase";
+import { IReview, ISubscription, IVisit, IOrderRequest } from "@/types/Models.subscriptions";
 import { create } from 'zustand';
-const supabase = createClient();
+//const supabase = createClient();
 const TableName1 = 'reviewsv2';
 const TableName2 = 'subscriptionsv2';
 const TableName3 = 'ordersv2';

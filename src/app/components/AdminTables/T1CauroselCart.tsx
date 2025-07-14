@@ -4,18 +4,6 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
 
-// type CartItem = {
-//   id: string;
-//   quantity: number;
-//   product: {
-//     id: string;
-//     name: string;
-//     description: string | null;
-//     price: number;
-//     image_url: string | null;
-//   };
-// };
-
 type ProductRaw = {
   id: string;
   name: string;
@@ -27,7 +15,7 @@ type ProductRaw = {
 type CartItemRaw = {
   id: string;
   quantity: number;
-  product: ProductRaw | ProductRaw[]; // Supabase sometimes wraps it as an array
+  product: ProductRaw | ProductRaw[]; 
 };
 
 type CartItem = {
@@ -36,15 +24,13 @@ type CartItem = {
   product: ProductRaw;
 };
 
-export default function AdminCarouselCart({ userId }: { userId: string }) {
+export default function F1AdminCarouselCart({ userId }: { userId: string }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCart = async () => {
-      // const { data, error } = await supabase.from("cart").select("id, quantity, product:product_id(id, name, description, price, image_url)").eq("user_id", userId);
       const { data, error } = await supabase.from("carousel_cart").select(`id, quantity, product:product_id ( id, name, price, image_url )`).eq("user_id", userId);
-
       if (error) {
         console.error("Error fetching cart:", error);
       } else if (data) {
@@ -69,7 +55,8 @@ export default function AdminCarouselCart({ userId }: { userId: string }) {
 
   return (
     <div className="overflow-x-auto">
-      <div className="flex gap-4 pb-4">
+      <div className="flex gap-4 pb-4"> 
+        <p> One</p>
         {items.map((item) => (
           <div key={item.id} className="min-w-[250px] bg-white border border-gray-200 rounded-lg shadow-sm p-4 flex-shrink-0">
             {item.product.image_url ? (

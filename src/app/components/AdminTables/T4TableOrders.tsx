@@ -15,7 +15,7 @@ type Order = {
   };
 };
 
-export default function AdminOrdersPanel() {
+export default function F4AdminOrdersPanel() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState<string | null>(null);
@@ -27,6 +27,7 @@ export default function AdminOrdersPanel() {
   const fetchOrders = async () => {
     setLoading(true);
     const { data, error } = await supabase.from("orders").select("*, user:users(id, email, name)").order("created_at", { ascending: false });
+    console.log(data);
 
     if (error) {
       console.error("Failed to fetch orders:", error);
@@ -51,8 +52,10 @@ export default function AdminOrdersPanel() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center mb-6 text-blue-700">🧾 Admin Orders Panel</h1>
+    // <div className="max-w-5xl mx-auto p-6">
+    <div className="overflow-x-auto">
+      {/* </div> */}
+      <h1 className="text-3xl font-bold text-center mb-6 text-blue-700">🧾 4. Admin Orders Panel</h1>
 
       {loading ? (
         <p className="text-center text-gray-500">Loading orders...</p>

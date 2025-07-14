@@ -24,7 +24,7 @@ ON CONFLICT (id) DO NOTHING;
 DROP TABLE IF EXISTS products CASCADE;
 
 CREATE TABLE IF NOT EXISTS products (
-  id SERIAL PRIMARY KEY,
+ id UUID PRIMARY KEY,
   name TEXT NOT NULL,
   price NUMERIC(10,2) NOT NULL CHECK (price >= 0),
   description TEXT,
@@ -48,7 +48,7 @@ INSERT INTO products (name, price, description, image_url) VALUES
 DROP TABLE IF EXISTS carousel_cart CASCADE;
 
 CREATE TABLE IF NOT EXISTS carousel_cart (
-  id SERIAL PRIMARY KEY,
+ id UUID PRIMARY KEY,
   product_id INTEGER NOT NULL REFERENCES products(id) ON DELETE CASCADE,
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   quantity INTEGER DEFAULT 1 CHECK (quantity > 0),
@@ -67,14 +67,15 @@ INSERT INTO carousel_cart (product_id, user_id, quantity) VALUES
 DROP TABLE IF EXISTS orders CASCADE;
 
 CREATE TABLE IF NOT EXISTS orders (
-  id SERIAL PRIMARY KEY,
+ id UUID PRIMARY KEY,
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   product_id INTEGER NOT NULL REFERENCES products(id),
   quantity INTEGER NOT NULL CHECK (quantity > 0),
   total NUMERIC(10,2) NOT NULL CHECK (total >= 0),
   status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'completed', 'cancelled')),
   created_at TIMESTAMP DEFAULT NOW(),
-  updated_at TIMESTAMP DEFAULT NOW()
+  updated_at TIMESTAMP DEFAULT NOW(),
+  items: json,
 );
 
 -- SEED ORDERS

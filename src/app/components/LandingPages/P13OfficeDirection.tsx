@@ -4,7 +4,7 @@ import { googleMap } from "@/app/utils/ApiRoutes";
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { ArrowPathIcon, ArrowPathRoundedSquareIcon } from "@heroicons/react/24/outline";
 import { GoogleMap, useJsApiLoader, DirectionsRenderer, Libraries, Autocomplete } from "@react-google-maps/api";
-import { CURRENT_ROUTE, DEFAULT_CENTER, DEFAULT_ZOOM, OFFICE_LOCATIONS, Route } from "@/app/utils/ZambianOffices";
+import { CURRENT_ROUTE, DEFAULT_CENTER, DEFAULT_ZOOM, OFFICE_LOCATIONS, Route } from "@/app/utils/DirectionsToOfficer";
 import { COMP_ADDRESS } from "@/app/utils/NexusData";
 
 // Constants

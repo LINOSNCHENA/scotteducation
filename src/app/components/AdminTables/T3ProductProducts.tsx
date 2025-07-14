@@ -13,7 +13,7 @@ type Product = {
   created_at: string;
 };
 
-export default function AdminProductsPanel() {
+export default function F3AdminProductsPanel() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
@@ -48,8 +48,10 @@ export default function AdminProductsPanel() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-blue-700 text-center mb-6">📦 Admin Product Management</h1>
+    // <div className="max-w-6xl mx-auto p-6">
+    <div className="overflow-x-auto">
+      {/* </div> */}
+      <h1 className="text-3xl font-bold text-blue-700 text-center mb-6">📦 3. Admin Product Management</h1>
 
       {loading ? (
         <p className="text-center text-gray-500">Loading products...</p>

@@ -1,12 +1,11 @@
 // app/api/subscribe/route.ts
 
 import { Resend } from "resend";
+import { supabase } from "@/lib/supabase";
 import { NextResponse } from "next/server";
 import { resend3Key, EMAIL_MASTER } from "@/app/utils/ApiRoutes";
-import { createClient } from "@/app/composables/supabaseClient";
-import type { ISubscription, IResendSendEmailResult } from "@/app/types/Models.subscriptions";
 import SubscriptionEmail from "@/app/components/EmailTemplates/SubscriptionEmail";
-const supabase = createClient();
+import { ISubscription, IResendSendEmailResult } from "@/types/Models.subscriptions";
 const resend = new Resend(resend3Key);
 const MASTER_EMAIL = EMAIL_MASTER;
 const TABLE = "subscriptionsv2";
