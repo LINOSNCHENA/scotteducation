@@ -1,4 +1,6 @@
-import CryptoExchange from "../components/Crypto/ShopBTC";
+// import CryptoExchange from "../components/Crypto/ShopBTC";
+
+import CryptoExchange from "../components/Young/ShopBTC";
 
 export default function HomePage() {
   return (

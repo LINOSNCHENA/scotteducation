@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { useShopStore } from "../memory/shop";
-import S13Footer from "../components/LandingPages/P14FooterSmall";
-import { CartItem, exUser, IOrder, IProduct, IUser } from "@/types/models.eshop";
 import { CartList } from "./CartList";
 import { OrderList } from "./OrderList";
 import { UserDetails } from "./userDetails";
+import S13Footer from "../components/Zambian/P14FooterSmall";
+import { CartItem, exUser, IOrder, IProduct, IUser } from "@/types/models.eshop";
 
 export default function AccountPage() {
   const { user, setUser, userId, setUserId } = useShopStore();

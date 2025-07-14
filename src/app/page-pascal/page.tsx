@@ -2,11 +2,11 @@
 "use client";
 
 import { useEffect } from "react";
-import ProductCard from "./components/ProductCard";
-import { useShopStore } from "./memory/shop";
-import { supabase } from "@/lib/supabase";
-import UserLoader from "./account/AppendUser";
 import { IUser } from "@/types/models.eshop";
+import { supabase } from "@/lib/supabase";
+import UserLoader from "../account/AppendUser";
+import ProductCard from "../components/ProductCard";
+import { useShopStore } from "../memory/shop";
 
 export default function LandingPage() {
   const { products, setProducts, user, setUser, clearUser } = useShopStore();

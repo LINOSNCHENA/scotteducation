@@ -4,8 +4,7 @@ import { API_POST_CONTACT } from "@/app/utils/ApiRoutes";
 import React, { useState } from "react";
 import { BUTTONS } from "@/app/utils/stylesData";
 import { COMP_MOTTO } from "@/app/utils/NexusData";
-import WatermarkBackground from "../MenuDown/WaterMarks";
-// import WatermarkBackground from "../MenusTop/WaterMarks";
+import WatermarkBackground from "./MenuDown/WaterMarks";
 
 const S10SendEmailForm = () => {
   const subjectId = "subjectFakes";
@@ -96,8 +95,6 @@ const S10SendEmailForm = () => {
     <section className="py-12 px-4 sm:px-6 lg:px-12 bg-gray-50 rounded-lg mt-9 mb-9">
       <div className="max-w-7xl mx-auto bg-gray-200 p-1 rounded-lg shadow-md relative">
         <WatermarkBackground altText={COMP_MOTTO} />
-        {/* <h2 className="text-2xl font-bold text-gray-700 mb-6 text-center">Contact Us | Drop a Quick Message</h2> */}
-
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-white mt-2 p-6 rounded-lg bg-red-400">
           {/* Email Field */}
           <div>

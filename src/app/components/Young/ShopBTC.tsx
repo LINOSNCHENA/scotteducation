@@ -165,8 +165,8 @@ const CryptoExchange = () => {
           </div>
 
           <div className="card-logos">
-            <Image src="/visa-logo.png" alt="Visa" width={50} height={30} />
-            <Image src="/mastercard-logo.png" alt="Mastercard" width={50} height={30} />
+            <Image src="/images/ux_young/1.jpg" alt="Visa" width={50} height={30} />
+            <Image src="/images/ux_young/2.png" alt="Mastercard" width={50} height={30} />
           </div>
         </div>
 
