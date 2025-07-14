@@ -79,6 +79,10 @@ https://vercel.com/linosnchenas-projects
 https://app.netlify.com/teams/linosnchena
 http://localhost:3000/
 
+http://localhost:3000/page-ntemba
+http://localhost:3000/page-young
+http://localhost:3000/page-pascal
+
 ```
 
 ## End

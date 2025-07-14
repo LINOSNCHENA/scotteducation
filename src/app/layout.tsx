@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-// import { APP_TITLE, APP_DESCRIPTION, COMP_LOGO } from "./utils/Branding/NexusData";
-import { BothMenus } from "./components/Pascal/MenuDown/BothMenus";
 import { APP_TITLE, APP_DESCRIPTION, COMP_LOGO } from "./utils/Branding/DataPascal";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <BothMenus />
+        {/* <BothMenus /> */}
         {children}
       </body>
     </html>
