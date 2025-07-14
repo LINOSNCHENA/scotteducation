@@ -2,11 +2,11 @@
 //  Company Data
 // 
 export const APP_TITLE = "CyberCrpto Ltd";
-export const APP_DESCRIPTION = "CyberFinance Ltd";
+export const APP_DESCRIPTION = "CyberFinance Young Ltd";
 export const COMP_MOBILE = "+42075779173";
 export const COMP_PHONE = "+420957699357";
 
-export const COMP_NAME = 'Cyber Finance Ltd';
+export const COMP_NAME = 'Cyber Finance Young Ltd';
 export const COMP_MOTTO = 'Think IT, We deliver IT';
 export const COMP_MOTTO1 = 'Best Technologies in Finance';
 export const COMP_ADDRESS = 'Plot 7330, Zlin Road, Metropolitanl Area, Prague,Czechia';

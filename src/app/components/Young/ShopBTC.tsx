@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
 import Image from "next/image";
 
 type CryptoKey = "BTC" | "ETH" | "USDT" | "BNB";
@@ -45,7 +44,6 @@ const CryptoExchange = () => {
         setLoading(false);
       }
     };
-
     fetchExchangeRate();
   }, [crypto]);
 
@@ -97,228 +95,114 @@ const CryptoExchange = () => {
   };
 
   return (
-    <div className="crypto-exchange">
-      <h2>{action === "buy" ? "Buy" : "Sell"} Cryptocurrency</h2>
-
-      <div className="toggle-buttons">
-        <button className={action === "buy" ? "active" : ""} onClick={() => setAction("buy")}>
-          Buy Crypto
-        </button>
-        <button className={action === "sell" ? "active" : ""} onClick={() => setAction("sell")}>
-          Sell Crypto
-        </button>
+    <div className="flex flex-col md:flex-row w-full min-h-screen bg-gray-50 p-6 md:p-12">
+      {/* Left Panel */}
+      <div className="md:w-1/2 flex items-center justify-center p-6">
+        <div className="text-center space-y-6">
+          <Image src="/images/ux_young/crypto-panel.png" alt="Crypto" width={300} height={300} />
+          <h2 className="text-3xl font-bold text-gray-800">Buy & Sell Crypto Instantly</h2>
+          <p className="text-gray-600">Fast, secure, and transparent crypto exchange with your card</p>
+        </div>
       </div>
 
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Cryptocurrency</label>
-          <select value={crypto} onChange={(e) => setCrypto(e.target.value as CryptoKey)} disabled={loading}>
-            {cryptoOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label} ({option.value})
-              </option>
-            ))}
-          </select>
+      {/* Right Panel */}
+      <div className="md:w-1/2 bg-white p-6 rounded-xl shadow-md">
+        <h3 className="text-2xl font-semibold text-center mb-4">{action === "buy" ? "Buy" : "Sell"} Cryptocurrency</h3>
+
+        <div className="flex justify-center mb-4 space-x-2">
+          <button className={`px-4 py-2 rounded-l ${action === "buy" ? "bg-blue-600 text-white" : "bg-gray-200"}`} onClick={() => setAction("buy")}>
+            Buy
+          </button>
+          <button className={`px-4 py-2 rounded-r ${action === "sell" ? "bg-blue-600 text-white" : "bg-gray-200"}`} onClick={() => setAction("sell")}>
+            Sell
+          </button>
         </div>
 
-        <div className="form-group">
-          <label>Amount in {crypto}</label>
-          <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder={`0.00000000 ${crypto}`} disabled={loading || !exchangeRate} />
-        </div>
-
-        <div className="form-group">
-          <label>Amount in USD</label>
-          <input type="number" value={fiatAmount} onChange={(e) => setFiatAmount(e.target.value)} placeholder="0.00 USD" disabled={loading || !exchangeRate} />
-        </div>
-
-        {exchangeRate && (
-          <div className="rate-info">
-            {action === "buy" ? "Buy" : "Sell"} rate: 1 {crypto} = {exchangeRate} USD
-            {action === "sell" && <span> (2% selling fee applied)</span>}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium">Cryptocurrency</label>
+            <select value={crypto} onChange={(e) => setCrypto(e.target.value as CryptoKey)} className="w-full border border-gray-300 rounded px-4 py-2 mt-1" disabled={loading}>
+              {cryptoOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label} ({option.value})
+                </option>
+              ))}
+            </select>
           </div>
-        )}
 
-        <div className="card-details">
-          <h3>Card Details</h3>
+          <div>
+            <label className="block text-sm font-medium">Amount in {crypto}</label>
+            <input
+              type="number"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              className="w-full border border-gray-300 rounded px-4 py-2 mt-1"
+              placeholder={`0.00000000 ${crypto}`}
+              disabled={loading || !exchangeRate}
+            />
+          </div>
 
-          <div className="form-group">
-            <label>Card Number</label>
+          <div>
+            <label className="block text-sm font-medium">Amount in USD</label>
+            <input
+              type="number"
+              value={fiatAmount}
+              onChange={(e) => setFiatAmount(e.target.value)}
+              className="w-full border border-gray-300 rounded px-4 py-2 mt-1"
+              placeholder="0.00 USD"
+              disabled={loading || !exchangeRate}
+            />
+          </div>
+
+          {exchangeRate && (
+            <div className="text-sm text-gray-500">
+              {action === "buy" ? "Buy" : "Sell"} rate: 1 {crypto} = {exchangeRate} USD
+              {action === "sell" && <span> (2% selling fee applied)</span>}
+            </div>
+          )}
+
+          <div className="border-t pt-4">
+            <h4 className="text-md font-medium mb-2">Card Details</h4>
             <input
               type="text"
               value={cardNumber}
               onChange={(e) => setCardNumber(e.target.value.replace(/\s/g, "").slice(0, 16))}
-              placeholder="1234 5678 9012 3456"
+              placeholder="Card Number"
+              className="w-full border border-gray-300 rounded px-4 py-2 mb-2"
               disabled={loading}
             />
-          </div>
-
-          <div className="form-row">
-            <div className="form-group">
-              <label>Expiry Date</label>
-              <input type="text" value={cardExpiry} onChange={(e) => setCardExpiry(e.target.value.replace(/\D/g, "").slice(0, 4))} placeholder="MMYY" disabled={loading} />
+            <div className="flex gap-4">
+              <input
+                type="text"
+                value={cardExpiry}
+                onChange={(e) => setCardExpiry(e.target.value.replace(/\D/g, "").slice(0, 4))}
+                placeholder="MMYY"
+                className="w-1/2 border border-gray-300 rounded px-4 py-2"
+                disabled={loading}
+              />
+              <input
+                type="text"
+                value={cardCvv}
+                onChange={(e) => setCardCvv(e.target.value.replace(/\D/g, "").slice(0, 3))}
+                placeholder="CVV"
+                className="w-1/2 border border-gray-300 rounded px-4 py-2"
+                disabled={loading}
+              />
             </div>
-
-            <div className="form-group">
-              <label>CVV</label>
-              <input type="text" value={cardCvv} onChange={(e) => setCardCvv(e.target.value.replace(/\D/g, "").slice(0, 3))} placeholder="123" disabled={loading} />
+            <div className="flex gap-2 mt-3">
+              <Image src="/images/ux_young/1.jpg" alt="Visa" width={50} height={30} />
+              <Image src="/images/ux_young/2.png" alt="Mastercard" width={50} height={30} />
             </div>
           </div>
 
-          <div className="card-logos">
-            <Image src="/images/ux_young/1.jpg" alt="Visa" width={50} height={30} />
-            <Image src="/images/ux_young/2.png" alt="Mastercard" width={50} height={30} />
-          </div>
-        </div>
+          {error && <div className="text-red-600 bg-red-100 p-2 rounded">{error}</div>}
+          {success && <div className="text-green-600 bg-green-100 p-2 rounded">{success}</div>}
 
-        {error && <div className="error-message">{error}</div>}
-        {success && <div className="success-message">{success}</div>}
-
-        <button type="submit" disabled={loading || !amount || !fiatAmount} className="submit-button">
-          {loading ? "Processing..." : action === "buy" ? "Buy Now" : "Sell Now"}
-        </button>
-      </form>
-
-      <style jsx>{`
-        .crypto-exchange {
-          max-width: 500px;
-          margin: 0 auto;
-          padding: 20px;
-          border-radius: 10px;
-          background: #f8f9fa;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-          text-align: center;
-          color: #333;
-          margin-bottom: 20px;
-        }
-
-        .toggle-buttons {
-          display: flex;
-          margin-bottom: 20px;
-        }
-
-        .toggle-buttons button {
-          flex: 1;
-          padding: 10px;
-          border: none;
-          background: #e9ecef;
-          color: #495057;
-          cursor: pointer;
-          font-weight: bold;
-        }
-
-        .toggle-buttons button.active {
-          background: #007bff;
-          color: white;
-        }
-
-        .toggle-buttons button:first-child {
-          border-radius: 5px 0 0 5px;
-        }
-
-        .toggle-buttons button:last-child {
-          border-radius: 0 5px 5px 0;
-        }
-
-        .form-group {
-          margin-bottom: 15px;
-        }
-
-        .form-row {
-          display: flex;
-          gap: 15px;
-        }
-
-        .form-row .form-group {
-          flex: 1;
-        }
-
-        label {
-          display: block;
-          margin-bottom: 5px;
-          font-weight: 500;
-          color: #495057;
-        }
-
-        input,
-        select {
-          width: 100%;
-          padding: 10px;
-          border: 1px solid #ced4da;
-          border-radius: 4px;
-          font-size: 16px;
-        }
-
-        .rate-info {
-          margin: 10px 0;
-          font-size: 14px;
-          color: #6c757d;
-        }
-
-        .card-details {
-          margin: 25px 0;
-          padding: 20px;
-          background: white;
-          border-radius: 8px;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-details h3 {
-          margin-top: 0;
-          margin-bottom: 15px;
-          color: #333;
-        }
-
-        .card-logos {
-          display: flex;
-          gap: 10px;
-          margin-top: 15px;
-        }
-
-        .card-logos img {
-          height: 30px;
-        }
-
-        .submit-button {
-          width: 100%;
-          padding: 12px;
-          background: #28a745;
-          color: white;
-          border: none;
-          border-radius: 4px;
-          font-size: 16px;
-          font-weight: bold;
-          cursor: pointer;
-          transition: background 0.2s;
-        }
-
-        .submit-button:hover {
-          background: #218838;
-        }
-
-        .submit-button:disabled {
-          background: #6c757d;
-          cursor: not-allowed;
-        }
-
-        .error-message {
-          color: #dc3545;
-          margin: 10px 0;
-          padding: 10px;
-          background: #f8d7da;
-          border-radius: 4px;
-        }
-
-        .success-message {
-          color: #155724;
-          margin: 10px 0;
-          padding: 10px;
-          background: #d4edda;
-          border-radius: 4px;
-        }
-      `}</style>
+          <button type="submit" disabled={loading || !amount || !fiatAmount} className="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded">
+            {loading ? "Processing..." : action === "buy" ? "Buy Now" : "Sell Now"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

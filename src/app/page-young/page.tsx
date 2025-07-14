@@ -1,8 +1,15 @@
+import { ExchangeSummary } from "../components/ExchangeSummary";
 import { S12AddressFooter } from "../components/Ntemba/P12FooterAddress";
 import OfficeDirections from "../components/Ntemba/P13OfficeDirection";
 import S13Footer from "../components/Ntemba/P14FooterSmall";
 import S2AboutUs from "../components/Ntemba/P2AboutUs";
-import { BothMenus } from "../components/Pascal/MenuDown/BothMenus";
+import { BothMenus } from "../components/Young/MenuDown/BothMenus";
+import CryptoWalletBalance from "../components/Young/CryotpWalletBalance";
+import CryptoNewsCard from "../components/Young/CryptoNewsCard";
+import CryptoPriceTicker from "../components/Young/CryptoPriceTicker";
+import { HowItWorks } from "../components/Young/HowItWorks";
+import { LegalNote } from "../components/Young/LegalNote";
+import { PricingTable } from "../components/Young/PrincingTable";
 import ReviewSelect from "../components/Young/RoutingPages/P1Reviews/ReviewsTopSix";
 import NewsletterSubscription from "../components/Young/RoutingPages/P3Subsriptions/NewsLetter";
 import CryptoExchange from "../components/Young/ShopBTC";
@@ -23,18 +30,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section>
+        <S2AboutUs />
+      </section>
+
       {/* Market Data Section */}
-      {/* <section className={styles.marketSection}>
+      <section className={styles.marketSection}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Live Market Data</h2>
           <div className={styles.tickerContainer}>
             <CryptoPriceTicker />
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Main Content Grid */}
-      {/* <section className={styles.mainContent}>
+      <section className={styles.mainContent}>
         <div className={styles.container}>
           <div className={styles.gridLayout}>
             <div className={styles.card}>
@@ -48,10 +59,20 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
+
+      <section className="bg-white py-16 px-4 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-10">Buy USDT (TRC20) with CARDEUR Instantly</h2>
+          <ExchangeSummary />
+          <PricingTable />
+          <HowItWorks />
+          <LegalNote />
+        </div>
+      </section>
 
       {/* Existing Components */}
-      <S2AboutUs />
+
       <CryptoExchange />
       <ReviewSelect />
 
