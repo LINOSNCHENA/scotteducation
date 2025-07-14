@@ -1,9 +1,8 @@
 // components/account/OrderList.tsx
+import { IOrder } from "@/types/models.eshop";
 import Image from "next/image";
-import { Order } from "@/types/models";
-
 type OrderListProps = {
-  orders: Order[];
+  orders: IOrder[];
   loading: boolean;
 };
 
@@ -21,10 +20,10 @@ export function OrderList({ orders, loading }: OrderListProps) {
             <li key={order.id} className="border p-3 rounded bg-gray-50">
               <div className="flex justify-between">
                 <div className="flex items-center gap-3">
-                  {order.product.image_url && (
+                  {order.id && (
                     <Image
-                      src={order.product.image_url}
-                      alt={order.product.name}
+                      src={String(order.products[0].product_id)}
+                      alt={order.user_id}
                       width={48}
                       height={48}
                       className="object-cover rounded"
@@ -35,7 +34,7 @@ export function OrderList({ orders, loading }: OrderListProps) {
                     />
                   )}
                   <div>
-                    <p className="font-medium">{order.product.name}</p>
+                    <p className="font-medium">{order.user_id}</p>
                     <p className="text-xs text-gray-500">Qty: {order.quantity}</p>
                   </div>
                 </div>

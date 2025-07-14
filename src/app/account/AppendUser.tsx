@@ -3,7 +3,8 @@
 import { supabase } from "@/lib/supabase";
 import { useEffect, useState } from "react";
 import { useShopStore } from "../memory/shop";
-import { IUser } from "@/types/models";
+import { IUser } from "@/types/models.eshop";
+import { ensureUserExists } from "@/lib/userSyncs";
 
 export default function UserLoader() {
   const setUser = useShopStore((state) => state.setUser);
@@ -28,6 +29,7 @@ export default function UserLoader() {
           return;
         }
 
+        await ensureUserExists(String(authUser?.id), String(authUser?.email), String(authUser.email));
         // Fetch additional user data from your profiles table
         const { data: profileData, error: profileError } = await supabase.from("users").select("name, email").eq("id", authUser.id).single();
 

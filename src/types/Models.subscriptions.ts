@@ -52,16 +52,3 @@ export type IResendSendEmailResult = {
     };
 };
 
-export interface IOrderRequest {
-    plan_title: string;
-    plan_price: string;
-    plan_bill: number;
-    plan_features: string[];
-    customer_name: string;
-    customer_email: string;
-    customer_phone?: string;
-    requirements?: string;
-    created_at: string;
-    status?: string;
-    id?: string; // UUID
-}

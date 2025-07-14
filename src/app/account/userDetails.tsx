@@ -1,6 +1,6 @@
 // components/account/UserDetails.tsx
 
-import { IUser } from "@/types/models";
+import { IUser } from "@/types/models.eshop";
 
 type UserDetailsProps = {
   user: IUser | null;

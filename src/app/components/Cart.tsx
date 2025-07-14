@@ -1,6 +1,6 @@
 import { useShopStore } from "../memory/shop";
 import { supabase } from "@/lib/supabase";
-import { IOrder } from "@/types/models";
+import { IOrder } from "@/types/models.eshop";
 import { useState } from "react";
 
 export default function Cart() {
@@ -26,9 +26,10 @@ export default function Cart() {
     const order: IOrder = {
       id: crypto.randomUUID(),
       user_id: user.id,
-      items: cart.map((item) => ({
+      products: cart.map((item) => ({
         product_id: String(item.product.id),
         quantity: item.quantity,
+        subtotal: item.quantity
       })),
       total,
       created_at: new Date().toISOString(),
@@ -56,7 +57,7 @@ export default function Cart() {
   return (
     <div className="p-4 border rounded shadow mt-4">
       <h2 className="text-xl font-bold">
-        Your Cart | {userId} |{JSON.stringify(user?.id)}{" "}
+        Your Cart | {userId} |userid={JSON.stringify(user?.id)}{" "}
       </h2>
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>

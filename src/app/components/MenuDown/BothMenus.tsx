@@ -19,6 +19,7 @@ export function BothMenus() {
     { path: "/cart", label: "Shopping" },
     { path: "/admin", label: "Admin" },
     { path: "/login", label: "Login" },
+    { path: "/young-crypto-master", label: "Cryptoo" },
   ];
 
   const singlePageItems = useMemo(

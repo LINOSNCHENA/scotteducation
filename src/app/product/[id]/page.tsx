@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import ProductDetail from "@/app/components/ProductDetails";
 import { supabase } from "@/lib/supabase";
-import { Product } from "@/types/models";
+import { IProduct } from "@/types/models.eshop";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
-  const [product, setProduct] = useState<Product | null>(null);
+  const [product, setProduct] = useState<IProduct | null>(null);
 
   useEffect(() => {
     async function fetchProduct() {

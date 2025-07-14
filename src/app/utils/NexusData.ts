@@ -1,15 +1,15 @@
 //
 //  Company Data
 // 
-export const APP_TITLE = "BroadImages Solutions Limited";
-export const APP_DESCRIPTION = "BImages Ltd";
-export const COMP_MOBILE = "+260955779173";
-export const COMP_PHONE = "+260975199357";
+export const APP_TITLE = "Scotteducation Ltd";
+export const APP_DESCRIPTION = "ScotEdu Ltd";
+export const COMP_MOBILE = "+42075779173";
+export const COMP_PHONE = "+420957699357";
 
-export const COMP_NAME = 'BroadImage Solutions Limited';
+export const COMP_NAME = 'BroadImage Solutions Ltd';
 export const COMP_MOTTO = 'Think IT, We deliver IT';
 export const COMP_MOTTO1 = 'Best Technologies in Finance';
-export const COMP_ADDRESS = 'Plot 7330, Mukatasha Road, Light Industrial Area, Lusaka, Cairo Road, Zambia';
+export const COMP_ADDRESS = 'Plot 7330, Mukatasha Road, Metropolitanl Area, Prague, Cairo Road, Czechia';
 
 export const COMP_TOWN = 'Lusaka';
 export const COMP_COUNTRY = '10101, Zambia';

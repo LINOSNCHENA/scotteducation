@@ -1,6 +1,6 @@
 // components/account/CartList.tsx
 
-import { CartItem } from "@/types/models";
+import { CartItem } from "@/types/models.eshop";
 import Image from "next/image";
 
 type CartListProps = {

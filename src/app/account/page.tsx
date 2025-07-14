@@ -6,7 +6,7 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { useShopStore } from "../memory/shop";
 import S13Footer from "../components/LandingPages/P14FooterSmall";
-import { Order, CartItem, Product, exUser, IUser } from "@/types/models";
+import { CartItem, exUser, IOrder, IProduct, IUser } from "@/types/models.eshop";
 import { CartList } from "./CartList";
 import { OrderList } from "./OrderList";
 import { UserDetails } from "./userDetails";
@@ -16,7 +16,7 @@ export default function AccountPage() {
   const [loading, setLoading] = useState<boolean>(false);
   const [cartLoading, setCartLoading] = useState<boolean>(false);
   const [statusMessage, setStatusMessage] = useState<string>("");
-  const [orders, setOrders] = useState<Order[]>([]);
+  const [orders, setOrders] = useState<IOrder[]>([]);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   useEffect(() => {
@@ -54,20 +54,6 @@ export default function AccountPage() {
       setCartLoading(true);
       try {
         // Fetch cart items
-        // const { data: cartData, error: cartError } = await supabase
-        //   .from("carousel_cart")
-        //   .select(
-        //     `
-        //     id,
-        //     quantity,
-        //     products!inner(
-        //       id,
-        //       name,
-        //       price,
-        //       image_url
-        //     )
-        //   `
-        //   )
         const { data: cartData, error: cartError } = await supabase.from("carousel_cart").select(`*`); //.eq("user_id", userId);
         const x = cartData?.filter((z) => z.user_id === userId);
         console.log("============|74|===============");
@@ -76,31 +62,32 @@ export default function AccountPage() {
         console.log(x);
 
         if (cartError) throw cartError;
-
         const validatedCartItems = (cartData || [])
           .map((item) => {
             const cartItem = item as {
-              id: number;
+              id: string;
               quantity: number;
-              products: Product[];
+              products: IProduct[];
             };
 
+            const product = cartItem.products?.[0];
+
             if (
-              typeof cartItem.id === "number" &&
+              typeof cartItem.id === "string" &&
               typeof cartItem.quantity === "number" &&
-              Array.isArray(cartItem.products) &&
-              cartItem.products.length > 0 &&
-              typeof cartItem.products[0]?.id === "number" &&
-              typeof cartItem.products[0]?.name === "string" &&
-              typeof cartItem.products[0]?.price === "number" &&
-              (cartItem.products[0]?.image_url === null || typeof cartItem.products[0]?.image_url === "string")
+              product &&
+              typeof product.id === "string" &&
+              typeof product.name === "string" &&
+              typeof product.price === "number" &&
+              (product.image_url === null || typeof product.image_url === "string")
             ) {
               return {
                 id: cartItem.id,
                 quantity: cartItem.quantity,
-                product: cartItem.products[0],
+                product,
               };
             }
+
             return null;
           })
           .filter((item): item is CartItem => item !== null);
@@ -110,67 +97,50 @@ export default function AccountPage() {
         // Fetch orders
         const { data: orderData, error: orderError } = await supabase
           .from("orders")
-          .select(
-            `
-            id,
-            product_id,
-            quantity,
-            total,
-            status,
-            created_at,
-            products!inner(
-              id,
-              name,
-              price,
-              image_url
-            )
-          `
-          )
+          .select(`id,user_id,product_id,quantity,total, status, created_at, products (id,name, price,image_url,description)`)
           .eq("user_id", userId)
           .order("created_at", { ascending: false });
 
         if (orderError) throw orderError;
-
         const validatedOrders = (orderData || [])
           .map((order) => {
-            const orderItem = order as {
-              id: number;
-              product_id: number;
-              quantity: number;
-              total: number;
-              status: string;
-              created_at: string;
-              products: Product[];
-            };
+            const product = order.products?.[0] ?? order.products;
 
             if (
-              typeof orderItem.id === "number" &&
-              typeof orderItem.product_id === "number" &&
-              typeof orderItem.quantity === "number" &&
-              typeof orderItem.total === "number" &&
-              ["pending", "completed", "cancelled"].includes(orderItem.status) &&
-              typeof orderItem.created_at === "string" &&
-              Array.isArray(orderItem.products) &&
-              orderItem.products.length > 0 &&
-              typeof orderItem.products[0]?.id === "number" &&
-              typeof orderItem.products[0]?.name === "string" &&
-              typeof orderItem.products[0]?.price === "number" &&
-              (orderItem.products[0]?.image_url === null || typeof orderItem.products[0]?.image_url === "string")
+              typeof order.id === "string" &&
+              typeof order.user_id === "string" &&
+              typeof order.product_id === "string" &&
+              typeof order.quantity === "number" &&
+              typeof order.total === "number" &&
+              ["pending", "completed", "cancelled"].includes(order.status) &&
+              typeof order.created_at === "string" &&
+              product &&
+              typeof product.id === "string" &&
+              typeof product.name === "string" &&
+              typeof product.price === "number"
             ) {
               return {
-                id: orderItem.id,
-                product_id: orderItem.product_id,
-                quantity: orderItem.quantity,
-                total: orderItem.total,
-                status: orderItem.status as "pending" | "completed" | "cancelled",
-                created_at: orderItem.created_at,
-                product: orderItem.products[0],
-              };
+                id: order.id,
+                user_id: order.user_id,
+                // product_id: order.product_id,
+                quantity: order.quantity,
+                total: order.total,
+                status: order.status as "pending" | "completed" | "cancelled",
+                created_at: order.created_at,
+                // products: Array.isArray(order.products) ? order.products : [order.products],
+                products: Array.isArray(order.products)
+                  ? order.products.map((product: IProduct & { quantity?: number }) => ({
+                      product_id: product.id,
+                      quantity: product.quantity ?? 1,
+                      subtotal: (product.price ?? 0) * (product.quantity ?? 1),
+                    }))
+                  : [],
+              } satisfies IOrder;
             }
+
             return null;
           })
-          .filter((order): order is Order => order !== null);
-
+          .filter((order): order is IOrder => order !== null);
         setOrders(validatedOrders);
       } catch (error) {
         console.error("Error fetching cart/orders:", error);

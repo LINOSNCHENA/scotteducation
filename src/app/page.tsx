@@ -6,8 +6,9 @@ import Cart from "./components/Cart";
 import { useShopStore } from "./memory/shop";
 import { supabase } from "@/lib/supabase";
 import UserLoader from "./account/AppendUser";
-import { IUser } from "@/types/models";
+import { IUser } from "@/types/models.eshop";
 import { ensureUserExists } from "@/lib/userSyncs";
+import { useRouter } from "next/navigation";
 
 export default function LandingPage() {
   const { products, setProducts, user, setUser, clearUser } = useShopStore();
@@ -15,6 +16,8 @@ export default function LandingPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     async function fetchProducts() {
@@ -34,12 +37,16 @@ export default function LandingPage() {
           full_name: session.user.user_metadata?.full_name,
         };
         setUser(userData);
+        setUserEmail(userData.email);
+        await ensureUserExists(String(session.user?.id), String(session?.user?.email), String(session.user.user_metadata?.full_name));
+      } else {
+        router.push("/login");
       }
     }
 
     fetchProducts();
     checkSession();
-  }, [setProducts, setUser]);
+  }, [router, setProducts, setUser]);
 
   const handlePasswordLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,7 +63,7 @@ export default function LandingPage() {
       setLoading(false);
       return;
     } else {
-      await ensureUserExists(String(data?.user?.id), String(data?.user?.email), String(data?.user?.user_metadata?.full_name));
+      //  await ensureUserExists(String(data?.user?.id), String(data?.user?.email), String(data?.user?.user_metadata?.full_name));
       console.log("================Registered================");
     }
 
@@ -107,6 +114,7 @@ export default function LandingPage() {
           )}
         </div>
       </div>
+      {userEmail}
       <Cart />
       <div className="grid grid-cols-1 md Tailwind CSS:grid-cols-3 gap-4">
         {products.map((product) => (

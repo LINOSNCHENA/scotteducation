@@ -2,8 +2,10 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { resend3Key, EMAIL_MASTER } from "@/app/utils/ApiRoutes";
 import EmailTemplate from "@/app/components/EmailTemplates/OrderEmail";
-import { IOrderRequest, IResendSendEmailResult } from "@/types/Models.subscriptions";
+// import { IOrderRequest, IResendSendEmailResult } from "@/types/Models.subscriptions";
 import { supabase } from "@/lib/supabase";
+import { IOrderRequest } from "@/types/models.eshop";
+import { IResendSendEmailResult } from "@/types/Models.subscriptions";
 
 const masterEmail = EMAIL_MASTER;
 const key = resend3Key;

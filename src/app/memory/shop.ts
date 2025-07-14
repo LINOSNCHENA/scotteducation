@@ -43,7 +43,7 @@
 
 // File: src/memory/shop.ts
 import { create } from "zustand";
-import { IProduct, IUser } from "@/types/models";
+import { IProduct, IUser } from "@/types/models.eshop";
 
 interface ShopState {
     products: IProduct[];

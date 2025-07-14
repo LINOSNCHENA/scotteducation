@@ -3,12 +3,12 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { CarouselCartItem, Product } from "@/types/models";
+import { CarouselCartItem, IProduct } from "@/types/models.eshop";
 
 export default function CarouselCart(userId: string) {
   // export default function CarouselCart({ userId }: { userId: string }) {
   const [items, setItems] = useState<CarouselCartItem[]>([]);
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
     async function fetchCart() {

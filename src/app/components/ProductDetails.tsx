@@ -4,10 +4,10 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
-import { Product } from "@/types/models";
 import { useShopStore } from "../memory/shop";
+import { IProduct } from "@/types/models.eshop";
 
-export default function ProductDetail({ product }: { product: Product }) {
+export default function ProductDetail({ product }: { product: IProduct }) {
   const [added, setAdded] = useState(false);
   const [loading, setLoading] = useState(false);
   const userId = useShopStore((state) => state.userId);
@@ -15,9 +15,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 
   const addToCart = async () => {
     if (!userId) return alert("Please login first.");
-
     setLoading(true);
-
     // Check if item already in cart
     const { data: existingItems, error: fetchError } = await supabase.from("carousel_cart").select("id, quantity").eq("user_id", userId).eq("product_id", product.id).single();
 
@@ -26,7 +24,6 @@ export default function ProductDetail({ product }: { product: Product }) {
       setLoading(false);
       return;
     }
-
     if (existingItems) {
       // Update quantity +1
       const newQuantity = existingItems.quantity + 1;

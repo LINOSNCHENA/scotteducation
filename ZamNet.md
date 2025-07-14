@@ -14,6 +14,7 @@ npm update tailwindcss @tailwindcss/oxide
 npm install @heroicons/react
 npm install @types/google.maps --save-dev
 npm install @react-google-maps/api  --save-dev
+npm i axios --save-dev
 
 ```
 
