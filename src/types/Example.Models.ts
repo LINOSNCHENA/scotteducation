@@ -12,7 +12,6 @@ export const egOrder: IOrder = {
 }
 
 export const egProduct: IProduct = {
-    // id: 0,
     name: "",
     price: 0,
     description: "",
@@ -21,7 +20,6 @@ export const egProduct: IProduct = {
 }
 
 export const egCart: CarouselCartItem = {
-    // product_id: 0,
     user_id: "",
     quantity: 0,
     product_id: ""
