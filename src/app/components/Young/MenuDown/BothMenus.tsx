@@ -14,12 +14,12 @@ export function BothMenus() {
 
   const routingItems = [
     { path: "/", label: "Products" },
-    { path: "/account", label: "Account" },
-    { path: "/dashboard", label: "Dashboard" },
-    { path: "/cart", label: "Shopping" },
-    { path: "/admin", label: "Admin" },
-    { path: "/login", label: "Login" },
-    { path: "/young-crypto-master", label: "Cryptoo" },
+    { path: "/account", label: "Risk Warning" },
+    { path: "/dashboard", label: "FAQ" },
+    { path: "/cart", label: "Verification" },
+    { path: "/admin", label: "Terms & Condiitons" },
+    { path: "/contacts", label: "Contacts" },
+    { path: "/page-young", label: "Home" },
   ];
 
   const singlePageItems = useMemo(

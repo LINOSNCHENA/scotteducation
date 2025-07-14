@@ -1,3 +1,6 @@
+
+"use client";
+
 import Image from "next/image";
 import {
   COMP_LOGO,
@@ -70,11 +73,8 @@ const contactInfo = [
 
 export function S12AddressFooter() {
   return (
-    // <footer className="w-full min-w-9xl py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-gray-100">
-    //   <div className="max-w-8xl mx-auto bg-gray-300 p-28 rounded-xl shadow-lg border border-gray-100 w-[85%]">
     <footer className="w-full min-w-9xl py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-gray-300">
-      <div className="min-w-8xl mx-auto bg-white p-4 rounded-xl shadow-lg border border-gray-100 w-[85%]">
-        {/* Logo and Social Section - already centered */}
+      <div className="min-w-8xl mx-auto bg-white p-4 rounded-xl shadow-lg border border-gray-100 w-[85%]"> 
         <div className="flex flex-col items-center mb-12 w-full">
           {COMP_LOGO && (
             <div className="relative w-36 h-36 mb-8">

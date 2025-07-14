@@ -7,7 +7,6 @@ export const egOrder: IOrder = {
     total: 0,
     status: "pending",
     created_at: "",
-    // product_id: "",
     products: []
 }
 

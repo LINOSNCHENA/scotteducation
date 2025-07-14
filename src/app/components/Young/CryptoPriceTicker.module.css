@@ -1,0 +1,83 @@
+/* CryptoPriceTicker.module.css */
+
+.tickerContainer {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.loading {
+  text-align: center;
+  padding: 1rem;
+  color: #636e72;
+  font-size: 0.9rem;
+}
+
+.ticker {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 0.5rem 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.ticker::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.tickerItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  min-width: 180px;
+}
+
+.symbol {
+  font-weight: 700;
+  color: #2d3436;
+  font-size: 1.1rem;
+}
+
+.price {
+  font-weight: 500;
+  color: #2d3436;
+}
+
+.positive {
+  color: #00b894;
+  font-weight: 500;
+}
+
+.negative {
+  color: #d63031;
+  font-weight: 500;
+}
+
+/* Animation for ticker */
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tickerItem {
+    min-width: 150px;
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+  
+  .symbol {
+    font-size: 1rem;
+  }
+}

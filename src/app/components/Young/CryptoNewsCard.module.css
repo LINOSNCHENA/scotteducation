@@ -1,0 +1,93 @@
+/* CryptoNewsCard.module.css */
+
+.newsContainer {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  color: #2d3436;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.newsCard {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.newsCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.newsHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.category {
+  background: #6c5ce7;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.date {
+  color: #636e72;
+}
+
+.newsTitle {
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  color: #2d3436;
+  font-weight: 600;
+}
+
+.newsExcerpt {
+  color: #636e72;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.readMore {
+  color: #6c5ce7;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s;
+}
+
+.readMore:hover {
+  color: #5649c0;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .newsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sectionTitle {
+    font-size: 1.3rem;
+  }
+}

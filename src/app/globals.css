@@ -5,6 +5,18 @@
   --foreground: #171717;
 }
 
+:root {
+  --primary: #6c5ce7;
+  --secondary: #a29bfe;
+  --dark: #2d3436;
+  --light: #f5f6fa;
+  --success: #00b894;
+  --danger: #d63031;
+  --warning: #fdcb6e;
+  --info: #0984e3;
+}
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
