@@ -3,7 +3,7 @@ import { S12AddressFooter } from "./components/Foundation/P12FooterAddress";
 import OfficeDirections from "./components/Foundation/P13OfficeDirection";
 import S13Footer from "./components/Foundation/P14FooterSmall";
 import { ExchangeSummary } from "./components/Ntemba/LandingPages/ExchangeSummary";
-import { BothMenus } from "./components/Ntemba/MenuDown/BothMenus";
+import { BothMenus } from "./components/Young/MenuDown/BothMenus";
 import ReviewSelect from "./components/Ntemba/RoutingPages/P1Reviews/ReviewsTopSix";
 import NewsletterSubscription from "./components/Ntemba/RoutingPages/P3Subsriptions/NewsLetter";
 import AboutCrypto from "./components/Young/LandingPages/AboutCrypto";
