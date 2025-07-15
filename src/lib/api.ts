@@ -3,7 +3,7 @@
 //
 
 import { supabase } from './supabase';
-import { University, AcademicPeriod, Course, LeisureTrip, Semester } from './types';
+import { University, AcademicPeriod, Course, LeisureTrip, Semester, RegistrationData } from './types';
 
 // API Functions 
 
@@ -65,7 +65,7 @@ export async function submitRegistration(registrationData: {
     courses: string[];
     leisure_trips: string[];
     total_cost: number;
-}): Promise<Registration> {
+}): Promise<RegistrationData> {
     // Start a transaction
     const { data, error } = await supabase
         .rpc('create_registration', {
