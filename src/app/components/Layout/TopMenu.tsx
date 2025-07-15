@@ -14,13 +14,24 @@ export default function TopMenu() {
           <Link href="/registration" className="hover:underline">
             Registration
           </Link>
-          <Link href="/grades" className="hover:underline">
+          {/* <Link href="/grades" className="hover:underline">
             Grades
-          </Link>
-          <Link href="/classes" className="hover:underline">
+          </Link> */}
+          <Link href="/courses" className="hover:underline">
             Classes
           </Link>
-          <Link href="/classes" className="hover:underline">
+
+          <Link href="/students" className="hover:underline">
+            Students
+          </Link>
+          <Link href="/courses" className="hover:underline">
+            Courses
+          </Link>
+          <Link href="/leisure" className="hover:underline">
+            Leisure
+          </Link>
+
+          <Link href="/blog" className="hover:underline">
             Blog
           </Link>
         </div>
