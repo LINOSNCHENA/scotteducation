@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { Button } from "./components/Pascal/RoutingPages/P4PostOfficer/ui/button";
-// import { Button } from "@/components/ui/button";
 
 export default function LandingPage() {
   return (
@@ -14,8 +13,8 @@ export default function LandingPage() {
             Study at Any University in the <span className="text-red-600">Czech Republic</span>
           </h1>
           <p className="text-lg text-gray-700 mb-6">
-            Begin your journey in the heart of Europe. Whether you're interested in technology, medicine, business, or arts, we are here to help you select the right university and
-            guide you through each step of the process.
+            Begin your journey in the heart of Europe. Whether you&apos;re interested in technology, medicine, business, or arts, we are here to help you select the right
+            university and guide you through each step of the process.
           </p>
           <Button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 text-lg rounded-full shadow-lg">Get Started Now</Button>
         </div>
@@ -48,9 +47,9 @@ export default function LandingPage() {
         <h2 className="text-3xl font-bold text-blue-900 text-center mb-12">Top Universities in Czechia</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
           {[
-            { name: "Charles University", city: "Prague", img: "/images/ux_pascal/1.jpg" },
-            { name: "Czech Technical University", city: "Prague", img: "/images/pascal/2.jpg" },
-            { name: "Masaryk University", city: "Brno", img: "/images/pascal/3.jpg" },
+            { name: "Charles University", city: "Prague", img: "/images/charles.jpg" },
+            { name: "Czech Technical University", city: "Prague", img: "/images/ctu.jpg" },
+            { name: "Masaryk University", city: "Brno", img: "/images/masaryk.jpg" },
           ].map((u) => (
             <div key={u.name} className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
               <Image src={u.img} alt={u.name} width={400} height={200} className="rounded-lg mb-4 object-cover h-48 w-full" />
