@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
 import { IProduct } from "@/types/models.eshop";
+import { formatDate } from "@/app/utils/Functions";
 
 export default function F3AdminProductsPanel() {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -62,7 +63,7 @@ export default function F3AdminProductsPanel() {
                 <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
                 <p className="text-sm text-gray-600 flex-1">{product.description}</p>
                 <p className="text-blue-600 font-bold mt-2">${product.price.toFixed(2)}</p>
-                <p className="text-xs text-gray-400 mt-1">Added: {new Date(product.created).toLocaleDateString()}</p>
+                <p className="text-xs text-gray-400 mt-1">Added: {formatDate(String(product.created))}</p>
                 <div className="mt-4 flex gap-2">
                   <button onClick={() => setEditingProduct(product)} className="flex-1 py-1 px-3 rounded bg-yellow-400 hover:bg-yellow-500 text-sm text-white font-medium">
                     Edit
