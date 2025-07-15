@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "./components/Pascal/RoutingPages/P4PostOfficer/ui/button";
+import { COMP_COPYRIGHT } from "./utils/Branding/DataPascal";
 
 export default function LandingPage() {
   return (
@@ -19,7 +20,7 @@ export default function LandingPage() {
           <Button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 text-lg rounded-full shadow-lg">Get Started Now</Button>
         </div>
         <div className="mt-10 md:mt-0">
-          <Image src="/images/czech-university.jpg" alt="Czech University" width={500} height={350} className="rounded-xl shadow-xl" />
+          <Image src="/images/ux_pascal/1.jpg" alt="Czech University" width={500} height={350} className="rounded-xl shadow-xl" />
         </div>
       </section>
 
@@ -44,12 +45,12 @@ export default function LandingPage() {
 
       {/* Featured Universities */}
       <section className="py-20 bg-blue-100 px-6 md:px-24">
-        <h2 className="text-3xl font-bold text-blue-900 text-center mb-12">Top Universities in Czechia</h2>
+        <h2 className="text-3xl font-bold text-blue-900 text-center mb-12">Top 3 Universities in Czechia</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
           {[
-            { name: "Charles University", city: "Prague", img: "/images/charles.jpg" },
-            { name: "Czech Technical University", city: "Prague", img: "/images/ctu.jpg" },
-            { name: "Masaryk University", city: "Brno", img: "/images/masaryk.jpg" },
+            { name: "Charles University", city: "Prague", img: "/images/ux_pascal/2.png" },
+            { name: "Czech Technical University", city: "Prague", img: "/images/ux_pascal/1.jpg" },
+            { name: "Masaryk University", city: "Brno", img: "/images/ux_pascal/3.png" },
           ].map((u) => (
             <div key={u.name} className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
               <Image src={u.img} alt={u.name} width={400} height={200} className="rounded-lg mb-4 object-cover h-48 w-full" />
@@ -108,7 +109,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-100 text-center p-6 text-sm text-gray-600">© {new Date().getFullYear()} Pemba Student Recruitment Services · All rights reserved.</footer>
+      <footer className="bg-gray-100 text-center p-6 text-sm text-gray-600">{COMP_COPYRIGHT}</footer>
     </div>
   );
 }
