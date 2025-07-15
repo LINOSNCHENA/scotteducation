@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 import { COMP_MOTTO } from "@/app/utils/Branding/DataPascal";
 import { supabase } from "@/lib/supabase";
 import WatermarkBackground from "../../MenuDown/WaterMarks";
-const TableName = "reviews_chitundu";
+const TableName = "reviews_pascal";
 
 interface ReviewForm {
   name: string;

@@ -1,7 +1,7 @@
 "use client";
 
 //
-// nEW rECORD
+// New Record
 //
 
 import { API_VISITATIONS } from "@/app/utils/Branding/ApiRoutes";
@@ -9,7 +9,7 @@ import { supabase } from "@/lib/supabase";
 import { IVisit } from "@/types/Models.subscriptions";
 import { useEffect } from "react";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
-const TableName = "visitsv2";
+const TableName = "visits_pascal";
 
 export default function VisitLogger() {
   useEffect(() => {

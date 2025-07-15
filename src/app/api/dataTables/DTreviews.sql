@@ -1,8 +1,8 @@
 -- Drop the reviews table if it exists
-DROP TABLE IF EXISTS public.reviews_chitundu CASCADE;
+DROP TABLE IF EXISTS public.reviews_pascal CASCADE;
 
 -- Create the reviews table
-CREATE TABLE public.reviews_chitundu (
+CREATE TABLE public.reviews_pascal (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   name TEXT NOT NULL,
   location TEXT,
@@ -13,36 +13,36 @@ CREATE TABLE public.reviews_chitundu (
 );
 
 -- Drop the index if it exists
-DROP INDEX IF EXISTS idx_reviews_created_at;
+DROP INDEX IF EXISTS idpascal_reviews_created_at;
 
 -- Create an index for faster sorting by date
-CREATE INDEX idx_reviews_created_at ON public.reviews_chitundu(created_at);
+CREATE INDEX idpascal_reviews_created_at ON public.reviews_pascal(created_at);
 
 -- Enable Row Level Security
-ALTER TABLE public.reviews_chitundu ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.reviews_pascal ENABLE ROW LEVEL SECURITY;
 
 -- Drop existing policies if any
-DROP POLICY IF EXISTS "Enable public read access" ON public.reviews_chitundu;
-DROP POLICY IF EXISTS "Enable insert for authenticated users" ON public.reviews_chitundu;
-DROP POLICY IF EXISTS "Enable insert for all users" ON public.reviews_chitundu;
+DROP POLICY IF EXISTS "Enable public read access" ON public.reviews_pascal;
+DROP POLICY IF EXISTS "Enable insert for authenticated users" ON public.reviews_pascal;
+DROP POLICY IF EXISTS "Enable insert for all users" ON public.reviews_pascal;
 
 -- Create policy for public read access
 CREATE POLICY "Enable public read access" 
-ON public.reviews_chitundu FOR SELECT 
+ON public.reviews_pascal FOR SELECT 
 TO authenticated, anon
 USING (true);
 
 -- Create policy for insert access
 CREATE POLICY "Enable insert for authenticated users"
-ON public.reviews_chitundu FOR INSERT
+ON public.reviews_pascal FOR INSERT
 TO authenticated
 WITH CHECK (true);
 
 -- Temporarily disable RLS to insert seed data
-ALTER TABLE public.reviews_chitundu DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.reviews_pascal DISABLE ROW LEVEL SECURITY;
 
 -- Insert 12 dummy records with African names and realistic reviews
-INSERT INTO public.reviews_chitundu (name, location, review, rating, avatar_url) VALUES
+INSERT INTO public.reviews_pascal (name, location, review, rating, avatar_url) VALUES
 ('Adeola Johnson', 'Lagos, Nigeria', 'Excellent web development services! Our e-commerce platform runs smoothly with great mobile optimization.', 5, 'https://randomuser.me/api/portraits/women/18.jpg'),
 ('Kwame Asante', 'Accra, Ghana', 'The team delivered our school website ahead of schedule with all requested features.', 4, 'https://randomuser.me/api/portraits/men/18.jpg'),
 ('Naledi Banda', 'Johannesburg, South Africa', 'Very professional design work. They understood our brand identity perfectly.', 5, 'https://randomuser.me/api/portraits/women/26.jpg'),
@@ -58,7 +58,7 @@ INSERT INTO public.reviews_chitundu (name, location, review, rating, avatar_url)
 
 
 -- Re-enable RLS after seed data insertion
--- ALTER TABLE reviewsv1 ENABLE ROW LEVEL SECURITY;
+-- ALTER TABLE reviews_pascal ENABLE ROW LEVEL SECURITY;
 
 -- Verify the inserted data
-SELECT * FROM public.reviews_chitundu ORDER BY created_at DESC;
+SELECT * FROM public.reviews_pascal ORDER BY created_at DESC;

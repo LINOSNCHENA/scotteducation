@@ -99,7 +99,7 @@ const CryptoExchange = () => {
       {/* Left Panel */}
       <div className="md:w-1/2 flex items-center justify-center p-6">
         <div className="text-center space-y-6">
-          <Image src="/images/ux_young/crypto-panel.png" alt="Crypto" width={300} height={300} />
+          <Image src="/images/ux_young/2.png" alt="Crypto" width={300} height={300} />
           <h2 className="text-3xl font-bold text-gray-800">Buy & Sell Crypto Instantly</h2>
           <p className="text-gray-600">Fast, secure, and transparent crypto exchange with your card</p>
         </div>

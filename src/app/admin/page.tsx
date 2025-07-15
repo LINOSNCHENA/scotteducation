@@ -3,13 +3,12 @@
 //
 
 "use client";
-
-import S2AdminUserTable from "../components/AdminShops/T2AdminTable";
-import S1AdminCarouselCart from "../components/AdminShops/T1CauroselCart";
-import S3AdminProductsPanel from "../components/AdminShops/T3ProductProducts";
-import S5ShopAdminCarouselCart from "../components/AdminShops/T5ShoppingCart";
-import S4AdminOrdersPanel from "../components/AdminShops/T4TableOrders";
-import S13Footer from "../components/Ntemba/P14FooterSmall";
+import S2AdminUserTable from "../components/Ntemba/AdminShops/T2AdminTable";
+import S1AdminCarouselCart from "../components/Ntemba/AdminShops/T1CauroselCart";
+import S3AdminProductsPanel from "../components/Ntemba/AdminShops/T3ProductProducts";
+import S5ShopAdminCarouselCart from "../components/Ntemba/AdminShops/T5ShoppingCart";
+import S4AdminOrdersPanel from "../components/Ntemba/AdminShops/T4TableOrders";
+import S13Footer from "../components/Foundation/P14FooterSmall";
 import { useShopStore } from "../memory/shop";
 
 export default function AdminPage() {

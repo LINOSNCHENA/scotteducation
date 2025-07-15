@@ -20,13 +20,6 @@ export default function ApproveCartButton({ userId }: { userId: string }) {
       return;
     }
 
-    // Step 2: Build orders
-    // const orderInserts = cartItems.map((item) => ({
-    //   user_id: userId,
-    //   product_id: item.product.id,
-    //   quantity: item.quantity,
-    //   total: Number(item.product.price) * item.quantity,
-    // }));
 
     const orderInserts = cartItems.map((item) => {
       const product = Array.isArray(item.product) ? item.product[0] : item.product;

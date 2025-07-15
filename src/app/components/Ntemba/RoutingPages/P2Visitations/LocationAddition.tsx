@@ -8,7 +8,7 @@ import { supabase } from "@/lib/supabase";
 import { IVisit } from "@/types/Models.subscriptions";
 import { useEffect } from "react";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
-const TableName = "visitsv2";
+const TableName = "visits_pascal";
 
 export default function VisitLogger() {
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function VisitLogger() {
         localStorage.setItem("presentToday", JSON.stringify(presentToday));
         localStorage.setItem("repeatToday", JSON.stringify(todayVisited));
 
-        const visitsJSON = localStorage.getItem("visits");
+        const visitsJSON = localStorage.getItem(TableName);
         const visits = visitsJSON ? JSON.parse(visitsJSON) : [];
         visits.push(visitData);
         localStorage.setItem("visits", JSON.stringify(visits));

@@ -12,8 +12,8 @@ const ReviewsMixed: React.FC = () => {
   const [reviews, setReviews] = useState<IReview[]>([]);
   const [visits, setVisits] = useState<IVisit[]>([]);
   const [loading, setLoading] = useState(true);
-  const TableName = "reviews_chitundu";
-  const TableName2 = "visitsv2";
+  const TableName = "reviews_pascal";
+  const TableName2 = "visits_pascal";
 
   useEffect(() => {
     const fetchData = async () => {

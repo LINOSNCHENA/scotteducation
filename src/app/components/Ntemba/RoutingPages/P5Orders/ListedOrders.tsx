@@ -5,7 +5,7 @@ import { formatDate } from "@/app/utils/Functions";
 import { supabase } from "@/lib/supabase";
 import { IOrderRequest } from "@/types/models.eshop";
 import { generateOrderInvoice } from "@/services/InvoiceGenerator";
-const TableName = "ordersv2";
+const TableName = "orders_pascal";
 
 const OrdersList = () => {
   const [orders, setOrders] = useState<IOrderRequest[]>([]);
@@ -99,8 +99,7 @@ const OrdersList = () => {
               <th className="px-3 py-2 border">Price</th>
               <th className="px-3 py-2 border">Bill</th>
               <th className="px-3 py-2 border">Customer</th>
-              {/* <th className="px-3 py-2 border">Email</th> */}
-              <th className="px-3 py-2 border">Phone</th>
+                       <th className="px-3 py-2 border">Phone</th>
               <th className="px-3 py-2 border">Requirements</th>
               <th className="px-3 py-2 border">Features</th>
               <th className="px-3 py-2 border">Date</th>
@@ -146,14 +145,6 @@ const OrdersList = () => {
                       order.customer_name
                     )}
                   </td>
-
-                  {/* <td className="px-3 py-2 border">
-                    {isEditing ? (
-                      <input type="email" name="customer_email" value={editForm.customer_email || ""} onChange={handleEditChange} className="border px-2 py-1 w-full" />
-                    ) : (
-                      order.customer_email
-                    )}
-                  </td> */}
 
                   <td className="px-3 py-2 border">
                     {isEditing ? (

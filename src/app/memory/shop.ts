@@ -1,47 +1,7 @@
-// // File: src/store/shop.ts
-
-// import { exUser, IUser, Product } from "@/types/models";
-// import { create } from "zustand";
-
-// interface ShopState {
-//     products: Product[];
-//     user: IUser;
-//     userId: string | null;
-//     cart: number[];
-//     setProducts: (products: Product[]) => void;
-//     setUser: (user: IUser) => void;
-//     clearUser: () => void;
-//     setUserId: (id: string) => void;
-//     addToCart: (productId: number) => void;
-//     removeFromCart: (productId: number) => void;
-// }
-
-// export const useShopStore = create<ShopState>((set) => ({
-//     products: [],
-//     user: exUser,
-//     userId: null,
-//     cart: [],
-//     setProducts: (products: Product[]) => set({ products }),
-//     setUser: (user: IUser) => set({ user }),
-//     clearUser: () => set({ user: exUser, userId: null }),
-//     setUserId: (id) => set({ userId: id }),
-//     addToCart: (productId) => set((state) => ({ cart: [...state.cart, productId] })),
-//     removeFromCart: (productId) =>
-//         set((state) => ({ cart: state.cart.filter((id) => id !== productId) })),
-// }));
-
-
-// type UserStore = {
-//     user: IUser | null;
-//     setUser: (user: IUser | null) => void;
-// };
-
-// export const useUserStore = create<UserStore>((set) => ({
-//     user: null,
-//     setUser: (user) => set({ user }),
-// }));
-
+//
 // File: src/memory/shop.ts
+//
+
 import { create } from "zustand";
 import { IProduct, IUser } from "@/types/models.eshop";
 

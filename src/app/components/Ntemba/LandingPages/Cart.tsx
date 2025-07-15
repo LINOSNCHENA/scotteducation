@@ -1,4 +1,4 @@
-import { useShopStore } from "../memory/shop";
+import { useShopStore } from "../../../memory/shop";
 import { supabase } from "@/lib/supabase";
 import { IOrder } from "@/types/models.eshop";
 import { useState } from "react";
@@ -29,7 +29,7 @@ export default function Cart() {
       products: cart.map((item) => ({
         product_id: String(item.product.id),
         quantity: item.quantity,
-        subtotal: item.quantity
+        subtotal: item.quantity,
       })),
       total,
       created_at: new Date().toISOString(),

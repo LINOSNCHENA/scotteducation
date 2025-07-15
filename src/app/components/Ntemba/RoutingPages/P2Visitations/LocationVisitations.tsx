@@ -6,11 +6,12 @@ export default function LocalVisit() {
   const [visits, setVisits] = useState<IVisit[]>([]);
   const [loading, setLoading] = useState(true);
   const TableTitle = "Visitations | Whole records";
+  const TableName = "visits_pascal";
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     try {
-      const raw = localStorage.getItem("visits");
+      const raw = localStorage.getItem(TableName);
       if (raw) setVisits(JSON.parse(raw));
     } catch (e) {
       console.error("Failed to parse visits JSON:", e);

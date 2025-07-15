@@ -5,7 +5,7 @@ import { formatDate } from "@/app/utils/Functions";
 import { supabase } from "@/lib/supabase";
 import { IOrderRequest } from "@/types/models.eshop";
 import { generateOrderInvoice } from "@/services/InvoiceGenerator";
-const TableName = "ordersv2";
+const TableName = "orders_pascal";
 
 const OrdersList = () => {
   const [orders, setOrders] = useState<IOrderRequest[]>([]);

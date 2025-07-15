@@ -13,7 +13,7 @@ const ReviewSelect = () => {
   const [loading, setLoading] = useState(true);
   const [loadsize, setSize] = useState(0);
   const [loadtotal, setTotal] = useState(0);
-  const TableName = "reviews_chitundu";
+  const TableName = "reviews_pascal";
 
   // Fetch reviews from Supabase
   useEffect(() => {
@@ -48,7 +48,6 @@ const ReviewSelect = () => {
         </h2>
 
         <div className="bg-gray-200 p-6 grid gap-6 md:grid-cols-2">
-          {/* <WatermarkBackground altText={COMP_MOTTO} /> */}
           {reviews.map((rev) => {
             const avatarUrl = rev.avatar_url || COMP_LOGO;
             return (

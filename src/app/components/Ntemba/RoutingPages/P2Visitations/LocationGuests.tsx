@@ -2,7 +2,7 @@
 import { supabase } from "@/lib/supabase";
 import { IVisit } from "@/types/Models.subscriptions";
 import { useEffect, useState, useCallback } from "react";
-const TableName = "visitsv2";
+const TableName = "visits_pascal";
 
 export default function VisitsGuests() {
   const [visits, setVisits] = useState<IVisit[]>([]);

@@ -8,9 +8,9 @@ import { IOrderRequest } from "@/types/models.eshop";
 import { IReview, ISubscription, IVisit } from "@/types/Models.subscriptions";
 import { create } from 'zustand';
 
-const TableName1 = 'reviewsv2';
-const TableName2 = 'subscriptionsv2';
-const TableName3 = 'ordersv2';
+const TableName1 = 'reviews_pascal';
+const TableName2 = 'subscriptions_pascal';
+const TableName3 = 'orders_pascal';
 
 interface StatusResult {
     signed: IReview[];

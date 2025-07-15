@@ -1,8 +1,7 @@
 // File: src/components/ProductCard.tsx
-// "use client";
 
 import { IProduct } from "@/types/models.eshop";
-import { useShopStore } from "../memory/shop";
+import { useShopStore } from "../../../memory/shop";
 
 interface ProductCardProps {
   product: IProduct;

@@ -34,7 +34,11 @@ export interface IProduct {
     name: string;
     price: number;
     description: string;
+    x?:string;
     image_url: string | null;
+    stock_quantity: number;
+    created: Date;
+    updated: Date;
 }
 
 // ---------- CART ----------
@@ -63,7 +67,6 @@ export type OrderItem = {
 export type IOrder = {
     id: string;
     user_id: string;
-    // product_id: string;
     quantity: number;
     total: number;
     status: "pending" | "completed" | "cancelled";

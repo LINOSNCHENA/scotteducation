@@ -6,7 +6,6 @@ import { supabase } from "@/lib/supabase";
 import Image from "next/image";
 import ApproveCartButton from "./ApprovalButton";
 import { useShopStore } from "../memory/shop";
-// import AdminCarouselCart from "../AdminTables/CauroselCart";
 
 type Product = {
   id: number;

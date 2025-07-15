@@ -1,8 +1,8 @@
 -- Drop the ordersv1 table if it exists
-DROP TABLE IF EXISTS ordersv2 CASCADE;
+DROP TABLE IF EXISTS orders_pascal CASCADE;
 
 -- Create the ordersv1 table
-CREATE TABLE ordersv2 (
+CREATE TABLE orders_pascal (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created_at TIMESTAMPTZ DEFAULT NOW(),
   plan_title TEXT NOT NULL,
@@ -18,14 +18,14 @@ CREATE TABLE ordersv2 (
 );
 
 -- Disable Row Level Security for this table
-ALTER TABLE ordersv2 DISABLE ROW LEVEL SECURITY;
+ALTER TABLE orders_pascal DISABLE ROW LEVEL SECURITY;
 
 -- Create indexes for better query performance
-CREATE INDEX idx_orders_email ON ordersv2 (customer_email);
-CREATE INDEX idx_orders_status ON ordersv2 (status);
+CREATE INDEX idpascal_orders_email ON orders_pascal (customer_email);
+CREATE INDEX idpascal_orders_status ON orders_pascal (status);
 
 -- Insert five dummy records with varied data
-INSERT INTO ordersv2 (
+INSERT INTO orders_pascal (
   plan_title,
   plan_price,
   plan_bill,
@@ -99,4 +99,4 @@ INSERT INTO ordersv2 (
 );
 
 -- Verify the inserted data
-SELECT * FROM ordersv2 ORDER BY created_at DESC;
+SELECT * FROM orders_pascal ORDER BY created_at DESC;

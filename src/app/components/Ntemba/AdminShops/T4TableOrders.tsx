@@ -52,9 +52,7 @@ export default function F4AdminOrdersPanel() {
   };
 
   return (
-    // <div className="max-w-5xl mx-auto p-6">
     <div className="overflow-x-auto">
-      {/* </div> */}
       <h1 className="text-3xl font-bold text-center mb-6 text-blue-700">🧾 4. Admin Orders Panel</h1>
 
       {loading ? (

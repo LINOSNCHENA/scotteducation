@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { formatDate } from "@/app/utils/Functions";
 import { supabase } from "@/lib/supabase";
 import { ISubscription } from "@/types/Models.subscriptions";
-const TableName = "subscriptionsv2";
+const TableName = "subscriptions_pascal";
 
 const SubscriptionList = () => {
   const [subscriptions, setSubscriptions] = useState<ISubscription[]>([]);
@@ -68,7 +68,6 @@ const SubscriptionList = () => {
   return (
     <section className="py-2 px-4 sm:px-6 lg:px-12 bg-white relative">
       <div className="max-w-9xl mx-auto w-full bg-gray-200 rounded-xl shadow-lg p-2 overflow-auto text-black">
-        {/* <WatermarkBackground altText={COMP_MOTTO} /> */}
         <h2 className="text-lg font-bold text-center mb-2">Subscriptions ({subscriptions.length})</h2>
         <table className="min-w-full text-sm text-left border border-gray-200 rounded-lg overflow-hidden">
           <thead className="bg-white text-gray-700">

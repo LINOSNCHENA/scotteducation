@@ -21,7 +21,7 @@ function NewsletterSubscription() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
   const [geoError, setGeoError] = useState("");
-  const TableName = "subscriptionsv2";
+  const TableName = "subscriptions_pascal";
 
   // Auto-fetch location on component mount
   useEffect(() => {

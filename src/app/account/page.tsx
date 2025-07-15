@@ -8,7 +8,7 @@ import { useShopStore } from "../memory/shop";
 import { CartList } from "./CartList";
 import { OrderList } from "./OrderList";
 import { UserDetails } from "./userDetails";
-import S13Footer from "../components/Ntemba/P14FooterSmall";
+import S13Footer from "../components/Foundation/P14FooterSmall";
 import { CartItem, exUser, IOrder, IProduct, IUser } from "@/types/models.eshop";
 
 export default function AccountPage() {

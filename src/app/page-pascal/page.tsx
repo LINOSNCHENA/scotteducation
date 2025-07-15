@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { IUser } from "@/types/models.eshop";
 import { supabase } from "@/lib/supabase";
 import UserLoader from "../account/AppendUser";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/Ntemba/LandingPages/ProductCard";
 import { useShopStore } from "../memory/shop";
 
 export default function LandingPage() {

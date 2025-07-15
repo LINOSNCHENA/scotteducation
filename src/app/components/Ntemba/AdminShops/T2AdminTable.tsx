@@ -58,9 +58,7 @@ export default function F2AdminUserTable() {
   }, []);
 
   return (
-    // <div className="max-w-5xl mx-auto bg-white p-6 rounded-xl shadow-md mt-8">
     <div className="overflow-x-auto">
-      {/* </div> */}
       <h1 className="text-2xl font-bold mb-4 text-gray-800">🛠 2. Admin User Management</h1>
 
       {loading ? (

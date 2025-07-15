@@ -11,6 +11,7 @@ type ResendSuccess = {
     subject?: string;
     html?: unknown
 };
+
 export type ResendError = {
     name: string;
     message: string;

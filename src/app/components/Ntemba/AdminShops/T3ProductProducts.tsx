@@ -3,20 +3,12 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
-
-type Product = {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image_url: string | null;
-  created_at: string;
-};
+import { IProduct } from "@/types/models.eshop";
 
 export default function F3AdminProductsPanel() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(true);
-  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [editingProduct, setEditingProduct] = useState<IProduct | null>(null);
 
   useEffect(() => {
     fetchProducts();
@@ -30,7 +22,7 @@ export default function F3AdminProductsPanel() {
     if (error) {
       console.error("Error fetching products:", error);
     } else {
-      setProducts(data as Product[]);
+      setProducts(data as IProduct[]);
     }
     setLoading(false);
   };
@@ -48,9 +40,7 @@ export default function F3AdminProductsPanel() {
   };
 
   return (
-    // <div className="max-w-6xl mx-auto p-6">
     <div className="overflow-x-auto">
-      {/* </div> */}
       <h1 className="text-3xl font-bold text-blue-700 text-center mb-6">📦 3. Admin Product Management</h1>
 
       {loading ? (
@@ -63,7 +53,7 @@ export default function F3AdminProductsPanel() {
             <div key={product.id} className="bg-white border border-gray-200 rounded-lg shadow hover:shadow-md transition overflow-hidden flex flex-col">
               {product.image_url ? (
                 <div className="relative w-full h-48">
-                  <Image src={product.image_url} alt={product.name} fill className="object-cover" />
+                  <Image src={`/images/medics/${product.x}.png`} alt={product.name} fill className="object-cover" />
                 </div>
               ) : (
                 <div className="h-48 flex items-center justify-center bg-gray-100 text-gray-400">No Image</div>
@@ -72,7 +62,7 @@ export default function F3AdminProductsPanel() {
                 <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
                 <p className="text-sm text-gray-600 flex-1">{product.description}</p>
                 <p className="text-blue-600 font-bold mt-2">${product.price.toFixed(2)}</p>
-                <p className="text-xs text-gray-400 mt-1">Added: {new Date(product.created_at).toLocaleDateString()}</p>
+                <p className="text-xs text-gray-400 mt-1">Added: {new Date(product.created).toLocaleDateString()}</p>
                 <div className="mt-4 flex gap-2">
                   <button onClick={() => setEditingProduct(product)} className="flex-1 py-1 px-3 rounded bg-yellow-400 hover:bg-yellow-500 text-sm text-white font-medium">
                     Edit

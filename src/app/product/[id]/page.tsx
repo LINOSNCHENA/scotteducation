@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import ProductDetail from "@/app/components/ProductDetails";
+import ProductDetail from "@/app/components/Ntemba/LandingPages/ProductDetails";
 import { supabase } from "@/lib/supabase";
 import { IProduct } from "@/types/models.eshop";
 

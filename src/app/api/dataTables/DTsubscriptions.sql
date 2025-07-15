@@ -3,10 +3,10 @@
 -- ============================================
 
 -- 1. Drop the table if it already exists
-DROP TABLE IF EXISTS subscriptionsv2 CASCADE;
+DROP TABLE IF EXISTS subscription_pascal CASCADE;
 
 -- 2. Create the updated table
-CREATE TABLE subscriptionsv2 (
+CREATE TABLE subscription_pascal (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   email TEXT NOT NULL,
@@ -20,10 +20,10 @@ CREATE TABLE subscriptionsv2 (
 );
 
 -- 3. Disable Row Level Security for full access
-ALTER TABLE subscriptionsv2 DISABLE ROW LEVEL SECURITY;
+ALTER TABLE subscription_pascal DISABLE ROW LEVEL SECURITY;
 
 -- 4. Insert dummy subscription records
-INSERT INTO subscriptionsv2 (name, email, location, address, district, compound, unsubscribed)
+INSERT INTO subscription_pascal (name, email, location, address, district, compound, unsubscribed)
 VALUES
   (
     'Adebayo Ogunlesi',
@@ -54,4 +54,4 @@ VALUES
   );
 
 -- 5. View all records
-SELECT * FROM subscriptionsv2;
+SELECT * FROM subscription_pascal;

@@ -13,7 +13,7 @@ const ReviewSelect = () => {
   const [loading, setLoading] = useState(true);
   const [loadsize, setSize] = useState(0);
   const [loadtotal, setTotal] = useState(0);
-  const TableName = "reviews_chitundu";
+  const TableName = "reviews_pascal";
 
   // Fetch reviews from Supabase
   useEffect(() => {

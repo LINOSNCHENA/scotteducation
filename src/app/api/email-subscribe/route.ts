@@ -8,7 +8,7 @@ import SubscriptionEmail from "@/app/components/EmailTemplates/SubscriptionEmail
 import { ISubscription, IResendSendEmailResult } from "@/types/Models.subscriptions";
 const resend = new Resend(resend3Key);
 const MASTER_EMAIL = EMAIL_MASTER;
-const TABLE = "subscriptionsv2";
+const TABLE = "subscriptions_pascal";
 
 // export async function POST(request: Request) {
 export const POST = async (request: Request) => {

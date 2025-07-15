@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
-import { useShopStore } from "../memory/shop";
+import { useShopStore } from "../../../memory/shop";
 import { IProduct } from "@/types/models.eshop";
 
 export default function ProductDetail({ product }: { product: IProduct }) {
