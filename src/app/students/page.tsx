@@ -1,7 +1,6 @@
 // app/students/page.tsx
-// import StudentsList from "@/components/Students/StudentsList";
 
-import StudentsList from "../components/Carousel/Data/StudentsList";
+import StudentsList from "../components/Carousel/DataTables/StudentsList";
 
 export default function StudentsPage() {
   return (

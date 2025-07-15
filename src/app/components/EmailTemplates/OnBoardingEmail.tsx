@@ -3,7 +3,7 @@
 //
 
 import { COMP_ICON_1URL, COMP_3SITE } from "@/app/utils/Branding/ApiRoutes";
-import { COMP_MOTTO, COMP_NAME } from "@/app/utils/Branding/DataYoung";
+import { COMP_MOTTO, COMP_NAME } from "@/app/utils/Branding/DataPascal";
 import { IContactFormEmailProps } from "@/types/Models.subscriptions";
 import { Html, Head, Preview, Body, Container, Section, Img, Text, Row, Column } from "@react-email/components";
 

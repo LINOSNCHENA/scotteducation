@@ -3,7 +3,8 @@ import { COMP_ICON_LOGO } from '@/app/utils/Branding/ApiRoutes';
 import { formatDateZM, formatCurrency } from '@/app/utils/Functions';
 import { IOrderRequest } from '@/types/models.eshop';
 import saveAs from 'file-saver';
-import { COMP_ADDRESS, COMP_EMAIL, COMP_MOBILE, COMP_NAME } from '@/app/utils/Branding/DataYoung';
+import { COMP_NAME, COMP_ADDRESS, COMP_EMAIL, COMP_MOBILE } from '@/app/utils/Branding/DataPascal';
+
 
 
 // Helper: Load logo as base64 from /public/log.png

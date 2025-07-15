@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { RegistrationData, Semester } from "@/lib/types";
 import Button from "../ui/Button";
 import { fetchSemesters } from "@/lib/api";
+import { RegistrationData, Semester } from "@/types/Model.Universities";
 
 interface PeriodSelectionProps {
   data: RegistrationData;

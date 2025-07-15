@@ -1,4 +1,4 @@
-import { RegistrationData } from "@/lib/types";
+import { RegistrationData } from "@/types/Model.Universities";
 import Button from "../ui/Button";
 import Link from "next/link";
 
@@ -7,7 +7,7 @@ interface ConfirmationProps {
 }
 
 export default function Confirmation({ data }: ConfirmationProps) {
-    console.log(data)
+  console.log(data);
   return (
     <div className="space-y-6 text-center">
       <div className="bg-green-100 text-green-800 p-4 rounded-lg">

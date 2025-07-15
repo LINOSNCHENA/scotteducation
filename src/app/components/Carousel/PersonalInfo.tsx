@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { RegistrationData, University } from "@/lib/types";
 import Button from "../ui/Button";
+import { RegistrationData, University } from "@/types/Model.Universities";
 
 interface PersonalInfoProps {
   data: RegistrationData;

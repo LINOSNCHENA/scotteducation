@@ -1,6 +1,6 @@
 // app/leisure/page.tsx
 
-import LeisureActivitiesList from "../components/Carousel/Data/LeasureLists";
+import LeisureActivitiesList from "../components/Carousel/DataTables/LeasureLists";
 
 export default function LeisurePage() {
   return (

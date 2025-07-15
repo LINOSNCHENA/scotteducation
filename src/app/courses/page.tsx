@@ -1,6 +1,6 @@
 // app/courses/page.tsx
 
-import CoursesList from "../components/Carousel/Data/CoursesList";
+import CoursesList from "../components/Carousel/DataTables/CoursesList";
 
 export default function CoursesPage() {
   return (

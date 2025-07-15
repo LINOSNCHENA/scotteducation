@@ -2,11 +2,10 @@
 // Data
 //
 
+import { University, AcademicPeriod, Semester, Course, LeisureTrip, RegistrationData } from '@/types/Model.Universities';
 import { supabase } from './supabase';
-import { University, AcademicPeriod, Course, LeisureTrip, Semester, RegistrationData } from './types';
 
 // API Functions 
-
 export async function fetchUniversities(): Promise<University[]> {
     const { data, error } = await supabase
         .from('universities')
