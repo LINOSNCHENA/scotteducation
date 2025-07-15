@@ -29,16 +29,27 @@ export const SupabseUser: User = {
 
 // ---------- PRODUCT ----------
 
-export interface IProduct {
+export interface IProduuct {
     id: string; // UUID
     name: string;
     price: number;
     description: string;
-    x?:string;
+    x?: string;
     image_url: string | null;
     stock_quantity: number;
     created: Date;
     updated: Date;
+}
+
+export interface IProduct {
+    id: string;
+    name: string;
+    price: number;
+    description: string;
+    image_url: string | null;
+    stock_quantity?: number;  // Made optional
+    created?: Date;           // Made optional
+    updated?: Date;           // Made optional
 }
 
 // ---------- CART ----------

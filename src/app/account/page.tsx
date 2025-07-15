@@ -122,17 +122,24 @@ export default function AccountPage() {
               return {
                 id: order.id,
                 user_id: order.user_id,
-                // product_id: order.product_id,
                 quantity: order.quantity,
                 total: order.total,
                 status: order.status as "pending" | "completed" | "cancelled",
                 created_at: order.created_at,
-                // products: Array.isArray(order.products) ? order.products : [order.products],
+
+                // products: Array.isArray(order.products)
+                //   ? order.products.map((product: OrderItem & { quantity?: number }) => ({
+                //       product_id: product.id,
+                //       quantity: product.quantity ?? 1,
+                //       subtotal: (product.price ?? 0) * (product.quantity ?? 1),
+                //     }))
+                //   : [],
+
                 products: Array.isArray(order.products)
-                  ? order.products.map((product: IProduct & { quantity?: number }) => ({
+                  ? order.products.map((product: IProduct) => ({
                       product_id: product.id,
-                      quantity: product.quantity ?? 1,
-                      subtotal: (product.price ?? 0) * (product.quantity ?? 1),
+                      quantity: product.stock_quantity ?? 1,
+                      subtotal: (product.price ?? 0) * (product.stock_quantity ?? 1),
                     }))
                   : [],
               } satisfies IOrder;
