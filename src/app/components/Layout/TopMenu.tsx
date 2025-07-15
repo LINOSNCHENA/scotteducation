@@ -20,6 +20,9 @@ export default function TopMenu() {
           <Link href="/classes" className="hover:underline">
             Classes
           </Link>
+          <Link href="/classes" className="hover:underline">
+            Blog
+          </Link>
         </div>
         <div className="flex space-x-4">
           <span>Welcome, Student</span>

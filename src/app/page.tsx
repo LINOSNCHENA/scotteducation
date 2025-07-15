@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "./components/Pascal/RoutingPages/P4PostOfficer/ui/button";
 import { COMP_COPYRIGHT } from "./utils/Branding/DataPascal";
 
@@ -48,9 +49,9 @@ export default function LandingPage() {
         <h2 className="text-3xl font-bold text-blue-900 text-center mb-12">Top 3 Universities in Czechia</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
           {[
-            { name: "Charles University", city: "Prague", img: "/images/ux_pascal/2.png" },
-            { name: "Czech Technical University", city: "Prague", img: "/images/ux_pascal/1.jpg" },
-            { name: "Masaryk University", city: "Brno", img: "/images/ux_pascal/3.png" },
+            { name: "Charles University", city: "Prague", img: "/images/ux_pascal/2.webp" },
+            { name: "Czech Technical University", city: "Prague", img: "/images/ux_pascal/3.jpg" },
+            { name: "Masaryk University", city: "Brno", img: "/images/ux_pascal/4.jpg" },
           ].map((u) => (
             <div key={u.name} className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
               <Image src={u.img} alt={u.name} width={400} height={200} className="rounded-lg mb-4 object-cover h-48 w-full" />
@@ -102,10 +103,13 @@ export default function LandingPage() {
       </section>
 
       {/* Final Call to Action */}
-      <section className="bg-red-600 text-white py-16 text-center">
+      <section className="bg-red-400 text-white py-16 text-center">
         <h2 className="text-3xl font-bold mb-4">Let’s Make Your Czech Dream Real</h2>
         <p className="mb-8 text-lg">With our help, you can be part of one of the most international student communities in Europe.</p>
-        <Button className="bg-white text-red-600 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:bg-gray-100">Select Your University</Button>
+
+        <Link href="/universities">
+          <Button className="bg-blue-600 text-white px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-colors">Select Your University</Button>
+        </Link>
       </section>
 
       {/* Footer */}
