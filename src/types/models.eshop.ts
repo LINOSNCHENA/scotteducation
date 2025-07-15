@@ -50,6 +50,7 @@ export interface IProduct {
     stock_quantity?: number;  // Made optional
     created?: string;  // Made optional
     updated?: string;    // Made optional
+    x?: string;
 }
 
 // ---------- CART ----------
