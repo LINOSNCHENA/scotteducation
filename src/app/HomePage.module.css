@@ -1,0 +1,137 @@
+.landingPage {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --text-color: #111827;
+  --bg-color: #ffffff;
+  --card-bg: #f9fafb;
+  --card-border: #e5e7eb;
+  --section-bg: #f3f4f6;
+}
+
+.dark-mode {
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --text-color: #f3f4f6;
+  --bg-color: #111827;
+  --card-bg: #1f2937;
+  --card-border: #374151;
+  --section-bg: #1f2937;
+}
+
+.landingPage {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.heroSection {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+.dark-mode .heroSection {
+  background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ctaButton {
+  background-color: white;
+  color: #2563eb;
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dark-mode .ctaButton {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.marketSection {
+  padding: 4rem 1rem;
+  background-color: var(--section-bg);
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.tickerContainer {
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.mainContent {
+  padding: 4rem 0;
+}
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.newsletterCta {
+  padding: 4rem 1rem;
+  background-color: var(--section-bg);
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
