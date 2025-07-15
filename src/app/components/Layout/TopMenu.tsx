@@ -5,10 +5,13 @@ export default function TopMenu() {
     <nav className="bg-blue-800 text-white p-4">
       <div className="container mx-auto flex justify-between">
         <div className="flex space-x-6">
+          <Link href="/" className="hover:underline">
+            Home
+          </Link>
           <Link href="/universities" className="hover:underline">
             Universities
           </Link>
-          <Link href="/" className="hover:underline">
+          <Link href="/registration" className="hover:underline">
             Registration
           </Link>
           <Link href="/grades" className="hover:underline">
