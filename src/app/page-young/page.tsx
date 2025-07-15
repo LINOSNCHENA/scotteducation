@@ -1,20 +1,20 @@
-import { ExchangeSummary } from "../components/Ntemba/LandingPages/ExchangeSummary";
-import { S12AddressFooter } from "../components/Foundation/P12FooterAddress";
-import OfficeDirections from "../components/Foundation/P13OfficeDirection";
-import S13Footer from "../components/Foundation/P14FooterSmall";
-import { BothMenus } from "../components/Young/MenuDown/BothMenus";
-import CryptoWalletBalance from "../components/Young/LandingPages/CryotpWalletBalance";
-import CryptoNewsCard from "../components/Young/LandingPages/CryptoNewsCard";
-import CryptoPriceTicker from "../components/Young/LandingPages/CryptoPriceTicker";
-import { HowItWorks } from "../components/Young/LandingPages/HowItWorks";
-import { LegalNote } from "../components/Young/LandingPages/LegalNote";
-import { PricingTable } from "../components/Young/LandingPages/PrincingTable";
-import ReviewSelect from "../components/Young/RoutingPages/P1Reviews/ReviewsTopSix";
-import NewsletterSubscription from "../components/Young/RoutingPages/P3Subsriptions/NewsLetter";
-import CryptoExchange from "../components/Young/LandingPages/ShopBTC";
-import { COMP_NAME } from "../utils/Branding/DataYoung";
-import styles from "./HomePage.module.css";
-import AboutCrypto from "../components/Young/LandingPages/AboutCrypto";
+import { ExchangeSummary } from "@/app/components/Ntemba/LandingPages/ExchangeSummary";
+import { S12AddressFooter } from "@/app/components/Foundation/P12FooterAddress";
+import OfficeDirections from "@/app/components/Foundation/P13OfficeDirection";
+import S13Footer from "@/app/components/Foundation/P14FooterSmall";
+import { BothMenus } from "@/app/components/Young/MenuDown/BothMenus";
+import CryptoWalletBalance from "@/app/components/Young/LandingPages/CryotpWalletBalance";
+import CryptoNewsCard from "@/app/components/Young/LandingPages/CryptoNewsCard";
+import CryptoPriceTicker from "@/app/components/Young/LandingPages/CryptoPriceTicker";
+import { HowItWorks } from "@/app/components/Young/LandingPages/HowItWorks";
+import { LegalNote } from "@/app/components/Young/LandingPages/LegalNote";
+import { PricingTable } from "@/app/components/Young/LandingPages/PrincingTable";
+import ReviewSelect from "@/app/components/Young/RoutingPages/P1Reviews/ReviewsTopSix";
+import NewsletterSubscription from "@/app/components/Young/RoutingPages/P3Subsriptions/NewsLetter";
+import CryptoExchange from "@/app/components/Young/LandingPages/ShopBTC";
+import { COMP_NAME } from "@/app/utils/Branding/DataYoung";
+import styles from "@/app/HomePage.module.css";
+import AboutCrypto from "@/app/components/Young/LandingPages/AboutCrypto";
 
 export default function HomePage() {
   return (
