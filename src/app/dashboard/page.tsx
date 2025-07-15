@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
+import { BothMenus } from "../components/Ntemba/MenuDown/BothMenus";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -44,6 +45,7 @@ export default function Dashboard() {
 
       {/* Main content */}
       <main className="flex-1 p-6">
+        <BothMenus/>
         {/* Top Bar */}
         <header className="flex justify-between items-center mb-6">
           <div>
@@ -58,7 +60,6 @@ export default function Dashboard() {
             Logout
           </button>
         </header>
-
         {/* Content Area */}
         <section className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Dashboard Overview</h2>

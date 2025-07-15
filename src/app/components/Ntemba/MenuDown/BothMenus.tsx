@@ -13,13 +13,12 @@ export function BothMenus() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const routingItems = [
-    { path: "/", label: "Products" },
+    { path: "/login", label: "Login" },
     { path: "/account", label: "Account" },
+    { path: "/admin", label: "Admin" },
     { path: "/dashboard", label: "Dashboard" },
     { path: "/cart", label: "Shopping" },
-    { path: "/admin", label: "Admin" },
-    { path: "/login", label: "Login" },
-    { path: "/young-crypto-master", label: "Cryptoo" },
+    { path: "/", label: "Products" },
   ];
 
   const singlePageItems = useMemo(

@@ -10,11 +10,13 @@ import S5ShopAdminCarouselCart from "../components/Ntemba/AdminShops/T5ShoppingC
 import S4AdminOrdersPanel from "../components/Ntemba/AdminShops/T4TableOrders";
 import S13Footer from "../components/Foundation/P14FooterSmall";
 import { useShopStore } from "../memory/shop";
+import { BothMenus } from "../components/Ntemba/MenuDown/BothMenus";
 
 export default function AdminPage() {
   const userId = useShopStore((state) => state.userId);
   return (
     <div className="p-4">
+      <BothMenus/>
       <p>User ID: {userId || "Not logged in"}</p>
 
       {userId ? (

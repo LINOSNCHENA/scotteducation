@@ -10,6 +10,7 @@ import { OrderList } from "./OrderList";
 import { UserDetails } from "./userDetails";
 import S13Footer from "../components/Foundation/P14FooterSmall";
 import { CartItem, exUser, IOrder, IProduct, IUser } from "@/types/models.eshop";
+import { BothMenus } from "../components/Ntemba/MenuDown/BothMenus";
 
 export default function AccountPage() {
   const { user, setUser, userId, setUserId } = useShopStore();
@@ -125,16 +126,7 @@ export default function AccountPage() {
                 quantity: order.quantity,
                 total: order.total,
                 status: order.status as "pending" | "completed" | "cancelled",
-                created_at: order.created_at,
-
-                // products: Array.isArray(order.products)
-                //   ? order.products.map((product: OrderItem & { quantity?: number }) => ({
-                //       product_id: product.id,
-                //       quantity: product.quantity ?? 1,
-                //       subtotal: (product.price ?? 0) * (product.quantity ?? 1),
-                //     }))
-                //   : [],
-
+                created_at: order.created_at,   
                 products: Array.isArray(order.products)
                   ? order.products.map((product: IProduct) => ({
                       product_id: product.id,
@@ -248,15 +240,14 @@ export default function AccountPage() {
 
   return (
     <div className="min-w-8xl mx-auto mt-16 p-6 bg-white rounded shadow space-y-8">
+      <BothMenus/>
       <p>1. One</p>
       <UserDetails user={user} loading={loading} onCreateAccount={handleCreateUserAndCart} onLogout={handleLogout} statusMessage={statusMessage} />
       <p>2. Second</p>
       <CartList items={cartItems} loading={cartLoading} />
       <p>3. Three</p>
-
       <OrderList orders={orders} loading={cartLoading} />
       <p>4. End</p>
-
       <S13Footer />
     </div>
   );
