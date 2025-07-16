@@ -1,11 +1,12 @@
 import { useState } from "react";
-import Button from "../ui/Button";
-import { RegistrationData, University } from "@/types/Model.Universities";
+// import Button from "../ui/button";
+import { RegistrationData, IUniversity } from "@/types/Model.Universities";
+import { Button } from "../ui";
 
 interface PersonalInfoProps {
   data: RegistrationData;
   updateData: (data: Partial<RegistrationData>) => void;
-  universities: University[];
+  universities: IUniversity[];
   nextStep: () => void;
 }
 

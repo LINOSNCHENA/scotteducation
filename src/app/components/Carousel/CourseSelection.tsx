@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import Button from "../ui/Button";
+// import Button from "../ui/button";
 import { fetchCourses } from "@/lib/api";
-import { RegistrationData, Course } from "@/types/Model.Universities";
+import { RegistrationData, ICourse } from "@/types/Model.Universities";
+import { Button } from "../ui/button";
 
 interface CourseSelectionProps {
   data: RegistrationData;
@@ -11,8 +12,8 @@ interface CourseSelectionProps {
 }
 
 export default function CourseSelection({ data, updateData, nextStep, prevStep }: CourseSelectionProps) {
-  const [courses, setCourses] = useState<Course[]>([]);
-  const [selectedCourses, setSelectedCourses] = useState<Course[]>(data.courses || []);
+  const [courses, setCourses] = useState<ICourse[]>([]);
+  const [selectedCourses, setSelectedCourses] = useState<ICourse[]>(data.courses || []);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function CourseSelection({ data, updateData, nextStep, prevStep }
     loadCourses();
   }, []);
 
-  const toggleCourse = (course: Course) => {
+  const toggleCourse = (course: ICourse) => {
     setSelectedCourses((prev) => {
       const exists = prev.some((c) => c.id === course.id);
       if (exists) {

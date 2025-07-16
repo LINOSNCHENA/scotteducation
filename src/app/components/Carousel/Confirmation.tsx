@@ -1,6 +1,7 @@
 import { RegistrationData } from "@/types/Model.Universities";
-import Button from "../ui/Button";
+// import Button from "../ui/button";
 import Link from "next/link";
+import { Button } from "../ui";
 
 interface ConfirmationProps {
   data: RegistrationData;

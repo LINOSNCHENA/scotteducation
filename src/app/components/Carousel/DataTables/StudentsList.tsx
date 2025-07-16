@@ -2,10 +2,10 @@
 
 import { supabase } from "@/lib/supabase";
 import { useEffect, useState } from "react";
-import { Student } from "@/types/Model.Universities";
+import { IStudent } from "@/types/Model.Universities";
 
 export default function StudentsList() {
-  const [students, setStudents] = useState<Student[]>([]);
+  const [students, setStudents] = useState<IStudent[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [count, setCount] = useState(0);

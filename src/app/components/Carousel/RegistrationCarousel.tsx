@@ -8,11 +8,11 @@ import CourseSelection from "./CourseSelection";
 import LeisureSelection from "./LeisureSelection";
 import PeriodSelection from "./PeriodSelection";
 import ReviewScreen from "./ReviewScreen";
-import { University, AcademicPeriod, RegistrationData } from "@/types/Model.Universities";
+import { IUniversity, IAcademicPeriod, RegistrationData } from "@/types/Model.Universities";
 
 interface RegistrationCarouselProps {
-  universities: University[];
-  currentPeriod: AcademicPeriod;
+  universities: IUniversity[];
+  currentPeriod: IAcademicPeriod;
 }
 
 export default function RegistrationCarousel({ universities, currentPeriod }: RegistrationCarouselProps) {

@@ -50,6 +50,9 @@ npm install react-to-print @types/react-to-print --save-dev
 npm install react-to-print --save
 npm install react-to-print@latest @types/react-to-print@latest
 
+npm install clsx tailwind-merge class-variance-authority
+npm install sonner
+
 ```
 
 ## 4. Benchmark Colors (5)

@@ -5,13 +5,13 @@ import { Button } from "./components/Pascal/RoutingPages/P4PostOfficer/ui/button
 import { COMP_COPYRIGHT, COMP_PHONE } from "./utils/Branding/DataPascal";
 import { useEffect, useState } from "react";
 import { COMP_EMAIL, COMP_MOBILE } from "./utils/Branding/DataPascal";
-import { SupportStaff } from "./utils/education/Models.Universities";
+import { ISupportStaff } from "./utils/education/Models.Universities";
 import { countries, mockStaff, universities } from "./utils/education/universities";
 import React from "react";
 import Link from "next/link";
 
 export default function LandingPage() {
-  const [staff, setStaff] = useState<SupportStaff[]>([]);
+  const [staff, setStaff] = useState<ISupportStaff[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("undergraduate");
 

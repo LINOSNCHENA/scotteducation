@@ -84,20 +84,7 @@ VALUES
 ('LANG202', 'Czech for Foreigners', 'Čeština pro cizince', 4, 'Languages');
 
 -- Create leisure trips table (Czech destinations)
-CREATE TABLE public.leisure_trips (
-    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    name_czech VARCHAR(255),
-    description TEXT,
-    destination VARCHAR(255) NOT NULL,
-    start_date DATE NOT NULL,
-    end_date DATE NOT NULL,
-    cost DECIMAL(10, 2) NOT NULL,
-    max_participants INTEGER,
-    is_active BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-
+c
 -- Insert Czech leisure trips
 INSERT INTO public.leisure_trips (name, name_czech, destination, start_date, end_date, cost)
 VALUES

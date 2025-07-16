@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import Button from "../ui/Button";
+// import Button from "../ui/button";
 import { fetchSemesters } from "@/lib/api";
-import { RegistrationData, Semester } from "@/types/Model.Universities";
+import { RegistrationData, ISemester } from "@/types/Model.Universities";
+import { Button } from "../ui";
 
 interface PeriodSelectionProps {
   data: RegistrationData;
@@ -11,8 +12,8 @@ interface PeriodSelectionProps {
 }
 
 export default function PeriodSelection({ data, updateData, nextStep, prevStep }: PeriodSelectionProps) {
-  const [semesters, setSemesters] = useState<Semester[]>([]);
-  const [selectedSemester, setSelectedSemester] = useState<Semester | null>(data.semester || null);
+  const [semesters, setSemesters] = useState<ISemester[]>([]);
+  const [selectedSemester, setSelectedSemester] = useState<ISemester | null>(data.semester || null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

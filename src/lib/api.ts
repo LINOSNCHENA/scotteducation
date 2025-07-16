@@ -2,11 +2,11 @@
 // Data
 //
 
-import { University, AcademicPeriod, Semester, Course, LeisureTrip, RegistrationData } from '@/types/Model.Universities';
+import { IUniversity, IAcademicPeriod, ISemester, ICourse, ILeisureTrip, RegistrationData } from '@/types/Model.Universities';
 import { supabase } from './supabase';
 
 // API Functions 
-export async function fetchUniversities(): Promise<University[]> {
+export async function fetchUniversities(): Promise<IUniversity[]> {
     const { data, error } = await supabase
         .from('universities')
         .select('*');
@@ -15,7 +15,7 @@ export async function fetchUniversities(): Promise<University[]> {
     return data;
 }
 
-export async function fetchCurrentPeriod(): Promise<AcademicPeriod> {
+export async function fetchCurrentPeriod(): Promise<IAcademicPeriod> {
     const { data, error } = await supabase
         .from('academic_periods')
         .select('*')
@@ -27,7 +27,7 @@ export async function fetchCurrentPeriod(): Promise<AcademicPeriod> {
     return data;
 }
 
-export async function fetchSemesters(periodId: string): Promise<Semester[]> {
+export async function fetchSemesters(periodId: string): Promise<ISemester[]> {
     const { data, error } = await supabase
         .from('semesters')
         .select('*')
@@ -37,7 +37,7 @@ export async function fetchSemesters(periodId: string): Promise<Semester[]> {
     return data;
 }
 
-export async function fetchCourses(): Promise<Course[]> {
+export async function fetchCourses(): Promise<ICourse[]> {
     const { data, error } = await supabase
         .from('courses')
         .select('*')
@@ -47,7 +47,7 @@ export async function fetchCourses(): Promise<Course[]> {
     return data;
 }
 
-export async function fetchLeisureTrips(): Promise<LeisureTrip[]> {
+export async function fetchLeisureTrips(): Promise<ILeisureTrip[]> {
     const { data, error } = await supabase
         .from('leisure_trips')
         .select('*')

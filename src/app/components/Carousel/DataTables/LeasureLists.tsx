@@ -3,10 +3,10 @@
 "use client";
 import { supabase } from "@/lib/supabase";
 import { useEffect, useState } from "react";
-import { LeisureTrip } from "@/types/Model.Universities";
+import { ILeisureTrip } from "@/types/Model.Universities";
 
 export default function LeisureActivitiesList() {
-  const [activities, setActivities] = useState<LeisureTrip[]>([]);
+  const [activities, setActivities] = useState<ILeisureTrip[]>([]);
   const [loading, setLoading] = useState(true);
   const [count, setSize] = useState(0);
 

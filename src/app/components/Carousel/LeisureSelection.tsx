@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import Button from "../ui/Button";
+// import Button from "../ui";
 import { fetchLeisureTrips } from "@/lib/api";
-import { RegistrationData, LeisureTrip } from "@/types/Model.Universities";
+import { RegistrationData, ILeisureTrip } from "@/types/Model.Universities";
+import { Button } from "../ui";
 
 interface LeisureSelectionProps {
   data: RegistrationData;
@@ -11,8 +12,8 @@ interface LeisureSelectionProps {
 }
 
 export default function LeisureSelection({ data, updateData, nextStep, prevStep }: LeisureSelectionProps) {
-  const [trips, setTrips] = useState<LeisureTrip[]>([]);
-  const [selectedTrips, setSelectedTrips] = useState<LeisureTrip[]>(data.leisureTrips || []);
+  const [trips, setTrips] = useState<ILeisureTrip[]>([]);
+  const [selectedTrips, setSelectedTrips] = useState<ILeisureTrip[]>(data.leisureTrips || []);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function LeisureSelection({ data, updateData, nextStep, prevStep 
     loadTrips();
   }, []);
 
-  const toggleTrip = (trip: LeisureTrip) => {
+  const toggleTrip = (trip: ILeisureTrip) => {
     setSelectedTrips((prev) => {
       const exists = prev.some((t) => t.id === trip.id);
       if (exists) {

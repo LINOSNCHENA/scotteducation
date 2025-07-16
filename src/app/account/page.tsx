@@ -11,7 +11,7 @@ export default function Dashboard() {
     const fetchUser = async () => {
       const { data, error } = await supabase.auth.getUser();
       if (error || !data.user) {
-        router.push("/");
+        router.push("/account");
       } else {
         setUserEmail(data.user.email ?? null);
       }

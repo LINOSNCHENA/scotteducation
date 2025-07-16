@@ -1,21 +1,21 @@
-export interface University {
+export interface IUniversity {
     id: string;
     name: string;
     country: string;
 }
 
-export interface Student {
+export interface IStudent {
     id: string;
     first_name: string;
     last_name: string;
     email: string;
     phone?: string;
     date_of_birth?: Date;
-    gender?: string;
+    gender: string;
     home_university_id?: string;
 }
 
-export interface AcademicPeriod {
+export interface IAcademicPeriod {
     id: string;
     name: string;
     start_date: string;
@@ -24,7 +24,7 @@ export interface AcademicPeriod {
     is_current: boolean;
 }
 
-export interface Semester {
+export interface ISemester {
     id: string;
     name: string;
     academic_period_id: string;
@@ -32,7 +32,7 @@ export interface Semester {
     end_date: string;
 }
 
-export interface Course {
+export interface ICourse {
     id: string;
     code: string;
     title: string;
@@ -41,7 +41,7 @@ export interface Course {
     department?: string;
 }
 
-export interface LeisureTrip {
+export interface ILeisureTrip {
     id: string;
     name: string;
     description?: string;
@@ -53,9 +53,9 @@ export interface LeisureTrip {
 }
 
 export interface RegistrationData {
-    student: Partial<Student>;
-    academicPeriod?: AcademicPeriod;
-    semester?: Semester;
-    courses: Course[];
-    leisureTrips: LeisureTrip[];
+    student: Partial<IStudent>;
+    academicPeriod?: IAcademicPeriod;
+    semester?: ISemester;
+    courses: ICourse[];
+    leisureTrips: ILeisureTrip[];
 }

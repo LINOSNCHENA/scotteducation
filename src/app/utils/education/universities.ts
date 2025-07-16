@@ -1,6 +1,6 @@
-import { University, CountryInfo, SupportStaff } from "./Models.Universities";
+import { ISupportStaff, ICountryInfo, IUniversity } from "./Models.Universities";
 
-export const universities: University[] = [
+export const universities: IUniversity[] = [
     {
         name: "Sorbonne University",
         country: "France",
@@ -45,7 +45,7 @@ export const universities: University[] = [
     },
 ];
 
-export const countries: CountryInfo[] = [
+export const countries: ICountryInfo[] = [
     {
         name: "Germany",
         flag: "🇩🇪",
@@ -84,7 +84,7 @@ export const countries: CountryInfo[] = [
     },
 ];
 
-export const mockStaff: SupportStaff[] = [
+export const mockStaff: ISupportStaff[] = [
     {
         id: 1,
         name: "Elena Petrova",
