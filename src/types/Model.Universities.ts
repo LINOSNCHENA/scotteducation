@@ -10,9 +10,9 @@ export interface IStudent {
     last_name: string;
     email: string;
     phone?: string;
-    date_of_birth?: Date;
+    date_of_birth?: string;
     gender: string;
-    home_university_id?: string;
+    university_id?: string;
 }
 
 export interface IAcademicPeriod {
@@ -59,3 +59,20 @@ export interface RegistrationData {
     courses: ICourse[];
     leisureTrips: ILeisureTrip[];
 }
+
+export type ISupportStaff = {
+    id: number;
+    name: string;
+    position: string;
+    bio: string;
+    photo: string;
+    languages: string[];
+};
+
+export type ICountryInfo = {
+    name: string;
+    flag: string;
+    advantage: string;
+    popularField: string;
+};
+

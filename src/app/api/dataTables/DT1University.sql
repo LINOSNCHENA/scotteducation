@@ -100,6 +100,7 @@ CREATE TABLE public.students (
     last_name VARCHAR(100) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     phone VARCHAR(20),
+    gender VARCHAR(20),
     university_id UUID REFERENCES universities(id),
     date_of_birth DATE,
     nationality VARCHAR(100),

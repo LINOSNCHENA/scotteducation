@@ -5,13 +5,13 @@ import { useStudentStore } from "../api/db-stores/store.students";
 import { Button, Skeleton, Badge } from "@/app/components/ui";
 import { Table } from "@/app/components/ui/table";
 import { StudentForm } from "./StudentForm";
-import { IStudent } from "../utils/education/Models.Universities";
 import { toast } from "sonner";
+import { IStudent } from "@/types/Model.Universities";
 
 export default function StudentsPage() {
-  const { students, loading, error, fetchStudents, addStudent } = useStudentStore();
+  const { students, loading, error, fetchStudents, addStudent, deleteStudent } = useStudentStore();
   const [isFormOpen, setIsFormOpen] = useState(false);
-  console.log(students);
+  const [editingStudent, setEditingStudent] = useState<IStudent | null>(null);
 
   useEffect(() => {
     fetchStudents();
@@ -19,7 +19,6 @@ export default function StudentsPage() {
 
   const handleAddStudent = async (studentData: Omit<IStudent, "id">) => {
     try {
-      console.log(studentData);
       await addStudent(studentData);
       setIsFormOpen(false);
       toast.success("Student added successfully!");
@@ -27,6 +26,40 @@ export default function StudentsPage() {
     } catch (err) {
       toast.error("Failed to add student");
       console.error("Add student error:", err);
+    }
+  };
+
+  const handleEditStudent = async (studentData: IStudent) => {
+    try {
+      await useStudentStore.getState().updateStudent(studentData.id, {
+        first_name: studentData.first_name,
+        last_name: studentData.last_name,
+        email: studentData.email,
+        phone: studentData.phone,
+        date_of_birth: studentData.date_of_birth,
+        university_id: studentData.university_id,
+        gender: studentData.gender,
+      });
+      setIsFormOpen(false);
+      setEditingStudent(null);
+      toast.success("Student updated successfully!");
+      fetchStudents(); // Refresh the list
+    } catch (err) {
+      toast.error("Failed to update student");
+      console.error("Update student error:", err);
+    }
+  };
+
+  const handleDeleteStudent = async (id: string) => {
+    if (window.confirm("Are you sure you want to delete this student?")) {
+      try {
+        await deleteStudent(id);
+        toast.success("Student deleted successfully!");
+        fetchStudents(); // Refresh the list
+      } catch (err) {
+        toast.error("Failed to delete student");
+        console.error("Delete student error:", err);
+      }
     }
   };
 
@@ -51,7 +84,16 @@ export default function StudentsPage() {
       </div>
 
       {/* Student Form Modal */}
-      {isFormOpen && <StudentForm onSubmit={handleAddStudent} onCancel={() => setIsFormOpen(false)} />}
+      {isFormOpen && (
+        <StudentForm
+          onSubmit={editingStudent ? handleEditStudent : handleAddStudent}
+          onCancel={() => {
+            setIsFormOpen(false);
+            setEditingStudent(null);
+          }}
+          initialData={editingStudent}
+        />
+      )}
 
       {loading ? (
         <StudentSkeleton />
@@ -84,9 +126,9 @@ export default function StudentsPage() {
                       </Table.Cell>
                       <Table.Cell>
                         {student.date_of_birth && <div className="text-gray-900">DOB: {new Date(student.date_of_birth).toLocaleDateString()}</div>}
-                        {student.first_name && (
+                        {student.gender && (
                           <Badge variant="outline" className="capitalize mt-1">
-                            {student.last_name}
+                            {student.gender}
                           </Badge>
                         )}
                       </Table.Cell>
@@ -95,8 +137,16 @@ export default function StudentsPage() {
                       </Table.Cell>
                       <Table.Cell>
                         <div className="flex space-x-2">
-                          <Button variant="secondary">Edit</Button>
-                          <Button variant="primary" className="text-red-600">
+                          <Button
+                            variant="secondary"
+                            onClick={() => {
+                              setEditingStudent(student);
+                              setIsFormOpen(true);
+                            }}
+                          >
+                            Edit
+                          </Button>
+                          <Button variant="primary" className="text-red-600" onClick={() => handleDeleteStudent(student.id)}>
                             Delete
                           </Button>
                         </div>
