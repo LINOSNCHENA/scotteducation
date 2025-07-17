@@ -21,6 +21,10 @@ export default function BottomMenu() {
         <Link href="/leisure" className="flex flex-col items-center">
           <span className="text-xs">Leisure</span>
         </Link>
+
+        <Link href="/reports" className="flex flex-col items-center">
+          <span className="text-xs">Reports</span>
+        </Link>
       </div>
     </nav>
   );

@@ -92,23 +92,6 @@ export interface RegistrationData {
     leisureTrips: ILeisureTrip[];
 }
 
-// export interface RegistrationData {
-//     id?: string; // Registration ID
-//     student: Partial<IStudent>;
-//     academicPeriod?: IAcademicPeriod;
-//     semester?: ISemester;
-//     courses: ICourse[];
-//     leisureTrips: ILeisureTrip[];
-//     status?: "pending" | "approved" | "rejected"; // From registrations table
-//     payment_status?: "unpaid" | "paid" | "pending"; // From registrations table
-//     total_cost?: number; // From registrations table
-//     created_at?: string; // From registrations table
-//     registration_date?: string; // From registrations table
-// }
-
-
-
-
 export interface IAcademicPeriod {
     id: string;
     name: string;

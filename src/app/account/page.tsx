@@ -216,8 +216,20 @@ export default function DisplayStudent() {
       <section />
 
       <section>
-        {/* <AcademicRegistration registrations={registrationData} /> */}
-        {JSON.stringify(registrationData)}
+        <div>
+          <h1>Student Registration Information</h1>
+          <div></div>
+          {JSON.stringify(registrationData?.total_cost)}
+          ====================================================
+          <h1>Student Registration Information</h1>
+          {JSON.stringify(registrationData?.academicPeriod)}
+          ====================================================
+          <h1>Student Registration Information</h1>
+          {JSON.stringify(registrationData?.courses)}
+          ===================================================
+          <h1>Student Registration Information</h1>
+          {JSON.stringify(registrationData?.student)}
+        </div>
       </section>
     </div>
   );
