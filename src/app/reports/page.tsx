@@ -1,4 +1,7 @@
-// import { createClient } from "@supabase/supabase-js";
+//
+// Tables
+//
+
 "use client"; // Add this line
 import { supabase } from "@/lib/supabase";
 import { useState, useEffect } from "react";

@@ -91,71 +91,20 @@ http://localhost:3000/page-main
 
 http://localhost:3000/profile
 http://localhost:3000/account
-
 http://localhost:3000/login
-
 http://localhost:3000/account/profile
 
 ```
 
 ## DataBases- Create six tables from supabase tables on a next component.
-Use the interface bewlow
 
+```
 1. Universities
 2. Students
 3. Courses
 4. AcademicPeriod
 5. Semester
 6. Leisure
-7. 
-
-
-export interface ICourse {
-    id: string;
-    code: string;
-    title: string;
-    description?: string;
-    credits: number;
-    department?: string;
-}
-
-export interface ISemester {
-    id: string;
-    name: string;
-    academic_period_id: string;
-    start_date: string;
-    end_date: string;
-}
-
-export interface ILeisureTrip {
-    id: string;
-    name: string;
-    description?: string;
-    destination: string;
-    start_date: string;
-    end_date: string;
-    cost: number;
-    max_participants?: number;
-}
-
-export interface IUniversity {
-    id: string;
-    name: string;
-    country: string;
-    img?: string;
-    highlight?: string;
-    ranking?: string;
-}
-
-export interface IStudent {
-    id: string;
-    first_name: string;
-    last_name: string;
-    email: string;
-    phone?: string;
-    date_of_birth?: string;
-    gender: string;
-    university_id?: string;
-}
+```
 
 ## End

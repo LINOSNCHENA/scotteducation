@@ -49,7 +49,7 @@ export default function TopMenu() {
   return (
     <nav className="bg-blue-800 text-white p-4">
       <div className="container mx-auto flex justify-between">
-        <div className="flex space-x-6">
+        <div className="flex space-x-6 text-sm">
           <Link href="/" className="hover:underline">
             Home
           </Link>
@@ -73,10 +73,10 @@ export default function TopMenu() {
           </Link>
           <Link href="/blog" className="hover:underline">
             Blog
-          </Link>     
+          </Link>
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 text-small">
           {currentUser ? (
             <>
               <span>Welcome, {currentUser.email || currentUser.user_metadata?.name || "User"}</span>
