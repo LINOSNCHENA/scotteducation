@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import Button from "../ui/button";
 import { fetchSemesters } from "@/lib/api";
 import { RegistrationData, ISemester } from "@/types/Model.Universities";
 import { Button } from "../ui";

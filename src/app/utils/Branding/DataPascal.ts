@@ -22,4 +22,5 @@ export const COMP_EMAIL3 = 'infor@scoteducation.net';
 export const COMP_EMAIL = 'infor@scoteducation.net';
 
 export const COMP_COPYRIGHT = `© ${new Date().getFullYear()} ${COMP_NAME} All Rights Reserved.`;
-export const COMP_LOGO = String("https://raw.githubusercontent.com/LINOSNCHENA/Troopers-packages/main/src/logos/chitundu/1.png");
+export const COMP_LOGO1 = String("https://raw.githubusercontent.com/LINOSNCHENA/Troopers-packages/main/src/logos/chitundu/1.png");
+export const COMP_LOGO = '/images/1.PNG'

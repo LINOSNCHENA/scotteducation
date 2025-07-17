@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import Button from "../ui/button";
 import { RegistrationData, IUniversity } from "@/types/Model.Universities";
 import { Button } from "../ui";
 
@@ -11,7 +10,16 @@ interface PersonalInfoProps {
 }
 
 export default function PersonalInfo({ data, updateData, universities, nextStep }: PersonalInfoProps) {
-  const [formData, setFormData] = useState(data.student);
+  // const [formData, setFormData] = useState(data.student);
+  // Initialize with default values for all required fields
+  const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    gender: "", // Ensure gender is initialized
+    university_id: "",
+    ...data.student, // Spread existing data (will override defaults if present)
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -27,6 +35,7 @@ export default function PersonalInfo({ data, updateData, universities, nextStep 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <h2 className="text-xl font-semibold">Personal Information</h2>
+      {/* {JSON.stringify(universities[0])} */}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
@@ -46,8 +55,22 @@ export default function PersonalInfo({ data, updateData, universities, nextStep 
       </div>
 
       <div>
+        <label htmlFor="gender" className="block text-sm font-medium mb-1">
+          Gender
+        </label>
+        <select id="gender" name="gender" value={formData.gender} onChange={handleChange} className="w-full p-2 border rounded" required>
+          <option value="" disabled>
+            Select gender
+          </option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div>
         <label className="block mb-1">Home University</label>
-        <select name="home_university_id" value={formData.home_university_id || ""} onChange={handleChange} className="w-full p-2 border rounded" required>
+        <select name="university_id" value={formData.university_id || ""} onChange={handleChange} className="w-full p-2 border rounded" required>
           <option value="">Select your university</option>
           {universities.map((univ) => (
             <option key={univ.id} value={univ.id}>

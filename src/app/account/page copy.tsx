@@ -1,11 +1,11 @@
 "use client";
 
-import { toast } from "sonner";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { IStudent, RegistrationData } from "@/types/Model.Universities";
 import { fetchUser, fetchStudent, fetchStudentData } from "../dashboard/profile/dataExtraction";
 import { User } from "@supabase/supabase-js";
-import { useState, useCallback, useEffect } from "react";
 
 export default function DisplayStudent() {
   const [loading, setLoading] = useState(true);
@@ -13,8 +13,6 @@ export default function DisplayStudent() {
   const [student, setStudent] = useState<IStudent | null>(null);
   const [user, setUser] = useState<User>();
   const [registrations, setRegistrations] = useState<RegistrationData[]>([]);
-  const [registrationData, setRegistratData] = useState<RegistrationData>();
-
   const router = useRouter();
 
   const fetchProfile = useCallback(async () => {
@@ -34,7 +32,6 @@ export default function DisplayStudent() {
 
       const registrationData = await fetchStudentData(String(studentData.id));
       setRegistrations(registrationData);
-      setRegistratData(registrationData[0]);
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : "Failed to load profile";
       setError(errorMessage);
@@ -165,19 +162,16 @@ export default function DisplayStudent() {
             Registration Information
           </h2>
         </div>
-        {JSON.stringify(registrations)}
-
         <div className="p-6">
           {registrations.length > 0 ? (
             registrations.map((registration) => (
               <div key={registration.id} className="mb-6 last:mb-0 pb-6 border-b last:border-b-0 border-gray-100">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                  {/* {JSON.stringify(registration.courses)} */}
-                  {/* <div>
+                  <div>
                     <p className="text-sm text-gray-500 mb-1">Academic Period</p>
                     <p className="font-medium text-gray-900">{registration.academicPeriod?.name || "N/A"}</p>
-                  </div> */}
-                  {/* <div>
+                  </div>
+                  <div>
                     <p className="text-sm text-gray-500 mb-1">Semester</p>
                     <p className="font-medium text-gray-900">{registration.semester?.name || "N/A"}</p>
                   </div>
@@ -192,32 +186,31 @@ export default function DisplayStudent() {
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Total Cost</p>
                     <p className="font-medium text-gray-900">${registration.total_cost || "0"}</p>
-                  </div> */}
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500 mb-1">Registration Date</p>
+                    <p className="font-medium text-gray-900">{formatDate(String(registration.registration_date))}</p>
+                  </div>
                 </div>
-                {/* {registration.courses?.length > 0 && (
+
+                {registration.courses?.length > 0 && (
                   <div className="mt-4">
                     <p className="text-sm font-medium text-gray-500 mb-2">Registered Courses</p>
                     <div className="flex flex-wrap gap-2">
-                       {registration.courses.map((course) => (
+                      {registration.courses.map((course) => (
                         <span key={course.id} className="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                          {course.name}
+                          {course.code}
                         </span>
-                      ))} 
+                      ))}
                     </div>
                   </div>
-                )} */}
+                )}
               </div>
             ))
           ) : (
             <p className="text-gray-500">No registration information available</p>
           )}
         </div>
-      </section>
-      <section />
-
-      <section>
-        {/* <AcademicRegistration registrations={registrationData} /> */}
-        {JSON.stringify(registrationData)}
       </section>
     </div>
   );

@@ -1,6 +1,17 @@
 -- Enable UUID extension
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
+-- /// EIGHT (8)
+DROP TABLE IF EXISTS public.universities CASCADE;
+DROP TABLE IF EXISTS public.academic_periods CASCADE;
+DROP TABLE IF EXISTS public.semesters CASCADE;
+DROP TABLE IF EXISTS public.courses CASCADE;
+DROP TABLE IF EXISTS public.students CASCADE;
+DROP TABLE IF EXISTS public.registrations CASCADE;
+DROP TABLE IF EXISTS public.course_selections CASCADE;
+DROP TABLE IF EXISTS public.leisure_trip_selections CASCADE;
+
+
 -- Create universities table with Czech universities (must come first as it's referenced by students)
 CREATE TABLE public.universities (
     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -84,7 +95,7 @@ VALUES
 ('LANG202', 'Czech for Foreigners', 'Čeština pro cizince', 4, 'Languages');
 
 -- Create leisure trips table (Czech destinations)
-c
+
 -- Insert Czech leisure trips
 INSERT INTO public.leisure_trips (name, name_czech, destination, start_date, end_date, cost)
 VALUES
@@ -104,7 +115,8 @@ CREATE TABLE public.students (
     university_id UUID REFERENCES universities(id),
     date_of_birth DATE,
     nationality VARCHAR(100),
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
 -- Create registrations table (after students, academic_periods, and semesters exist)
@@ -117,7 +129,8 @@ CREATE TABLE public.registrations (
     status VARCHAR(50) NOT NULL,
     payment_status VARCHAR(50) NOT NULL,
     total_cost DECIMAL(10, 2) NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
 -- Create course selections table (after registrations and courses exist)
@@ -126,6 +139,7 @@ CREATE TABLE public.course_selections (
     registration_id UUID REFERENCES registrations(id) NOT NULL,
     course_id UUID REFERENCES courses(id) NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     UNIQUE(registration_id, course_id)
 );
 
@@ -231,7 +245,19 @@ BEGIN
 END;
 $$;
 
--- Create indexes
+
+-- Drop all specified indexes (SEVEN)
+DROP INDEX IF EXISTS idx_students_email;
+DROP INDEX IF EXISTS idx_registrations_student;
+DROP INDEX IF EXISTS idx_course_selections_reg;
+DROP INDEX IF EXISTS idx_leisure_trip_selections_reg;
+DROP INDEX IF EXISTS idx_academic_periods_current;
+DROP INDEX IF EXISTS idx_courses_active;
+DROP INDEX IF EXISTS idx_leisure_trips_active;
+
+ALTER TABLE students ADD CONSTRAINT unique_email UNIQUE (email);
+
+-- Create indexes (SEVEN)
 CREATE INDEX idx_students_email ON students(email);
 CREATE INDEX idx_registrations_student ON registrations(student_id);
 CREATE INDEX idx_course_selections_reg ON course_selections(registration_id);
@@ -239,3 +265,5 @@ CREATE INDEX idx_leisure_trip_selections_reg ON leisure_trip_selections(registra
 CREATE INDEX idx_academic_periods_current ON academic_periods(is_current);
 CREATE INDEX idx_courses_active ON courses(is_active);
 CREATE INDEX idx_leisure_trips_active ON leisure_trips(is_active);
+
+SELECT * FROM universities

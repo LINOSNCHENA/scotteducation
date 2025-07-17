@@ -31,6 +31,8 @@ npm install @supabase/supabase-js@latest @supabase/ssr@latest
 npx supabase gen types typescript --project-id abcdefghijklmnop > src/types/supabase.ts
 npm install --save-dev @types/firebase
 npm install firebase
+npm install zukeeper
+
 ```
 
 ## 3. Sample-Users
@@ -87,6 +89,21 @@ http://localhost:3000/page-young
 http://localhost:3000/page-pascal
 http://localhost:3000/page-main
 
+http://localhost:3000/profile
+http://localhost:3000/account
+
+http://localhost:3000/login
+
+http://localhost:3000/account/profile
+
 ```
+
+npx shadcn-ui@latest add card
+npx shadcn-ui@latest add skeleton
+npx shadcn-ui@latest add badge
+
+npx shadcn@latest add badge
+npx shadcn@latest add card
+npx shadcn@latest add skeleton
 
 ## End

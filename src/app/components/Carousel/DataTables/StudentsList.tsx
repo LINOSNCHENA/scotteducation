@@ -67,7 +67,7 @@ export default function StudentsList() {
                   {student.date_of_birth && <div className="text-gray-900">DOB: {new Date(student.date_of_birth).toLocaleDateString()}</div>}
                   {student.gender && <div className="text-sm text-gray-500 capitalize">{student.gender}</div>}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-gray-500">{student.home_university_id || "Not specified"}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-gray-500">{student.university_id || "Not specified"}</td>
               </tr>
             ))}
           </tbody>

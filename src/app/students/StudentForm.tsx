@@ -112,6 +112,8 @@ export function StudentForm({ onSubmit, onCancel, initialData }: StudentFormProp
                 ))}
               </select>
             </div>
+
+
             <div>
               <label htmlFor="gender" className="block text-sm font-medium mb-1">
                 Gender
@@ -125,6 +127,8 @@ export function StudentForm({ onSubmit, onCancel, initialData }: StudentFormProp
                 <option value="other">Other</option>
               </select>
             </div>
+
+            
           </div>
           <div className="flex justify-end space-x-2 mt-6">
             <Button type="button" variant="secondary" onClick={onCancel}>

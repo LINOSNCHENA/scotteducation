@@ -1,7 +1,10 @@
+// app/auth/page.tsx
 "use client";
+
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { useAuthStore } from "../../lib/store.users";
 
 export default function AuthPage() {
   const router = useRouter();
@@ -9,44 +12,41 @@ export default function AuthPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { login, signUp, signInWithGoogle, currentUser } = useAuthStore();
+  console.log(currentUser);
+
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    let error = null;
-
-    if (isLogin) {
-      ({ error } = await supabase.auth.signInWithPassword({ email, password }));
-    } else {
-      ({ error } = await supabase.auth.signUp({ email, password }));
-    }
-
-    setLoading(false);
-
-    if (error) {
-      alert(error.message);
-      console.error("Auth error:", error.message);
-    } else {
+    try {
       if (isLogin) {
-        router.push("/dashboard");
+        await login(email, password);
+        toast.success("Logged in successfully!");
+        router.push("/account");
+        console.log(currentUser);
+        // Update menu logined name
       } else {
-        alert("Registration successful. Please check your email to confirm.");
+        await signUp(email, password);
+        toast.success("Registration successful. Please check your email to confirm.");
         setIsLogin(true);
       }
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Authentication failed");
+    } finally {
+      setLoading(false);
     }
   };
 
   const loginWithGoogle = async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: "http://localhost:3000/auth/callback",
-      },
-    });
-
-    if (error) {
-      console.error("Google login error:", error.message);
-      alert("Google login failed.");
+    setLoading(true);
+    try {
+      await signInWithGoogle();
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Google login failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -83,7 +83,11 @@ export default function AuthPage() {
           <hr className="w-full border-gray-300" />
         </div>
 
-        <button onClick={loginWithGoogle} className="w-full flex items-center justify-center gap-2 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition">
+        <button
+          onClick={loginWithGoogle}
+          disabled={loading}
+          className="w-full flex items-center justify-center gap-2 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition"
+        >
           <svg className="w-5 h-5" viewBox="0 0 48 48">
             <path
               fill="#FFC107"

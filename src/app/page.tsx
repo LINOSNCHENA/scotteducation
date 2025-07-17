@@ -5,10 +5,10 @@ import { Button } from "./components/Pascal/RoutingPages/P4PostOfficer/ui/button
 import { COMP_COPYRIGHT, COMP_PHONE } from "./utils/Branding/DataPascal";
 import { useEffect, useState } from "react";
 import { COMP_EMAIL, COMP_MOBILE } from "./utils/Branding/DataPascal";
-import { ISupportStaff } from "./utils/education/Models.Universities";
 import { countries, mockStaff, universities } from "./utils/education/universities";
 import React from "react";
 import Link from "next/link";
+import { ISupportStaff } from "@/types/Model.Universities";
 
 export default function LandingPage() {
   const [staff, setStaff] = useState<ISupportStaff[]>([]);
@@ -317,7 +317,7 @@ export default function LandingPage() {
             {universities.map((uni) => (
               <div key={uni.name} className="bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl overflow-hidden transition">
                 <div className="relative h-48">
-                  <Image src={uni.img} alt={uni.name} fill className="object-cover" />
+                  <Image src={String(uni.img)} alt={uni.name} fill className="object-cover" />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                     <h3 className="text-xl font-bold text-white">{uni.name}</h3>
                     <p className="text-blue-200">{uni.country}</p>

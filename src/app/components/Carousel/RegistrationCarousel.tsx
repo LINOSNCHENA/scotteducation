@@ -22,6 +22,12 @@ export default function RegistrationCarousel({ universities, currentPeriod }: Re
     courses: [],
     leisureTrips: [],
     academicPeriod: currentPeriod,
+    id: "",
+    student_id: "",
+    status: "approved",
+    payment_status: "pending",
+    created_at: "",
+    total_cost: 9,
   });
 
   const nextStep = () => setStep(step + 1);
@@ -37,7 +43,7 @@ export default function RegistrationCarousel({ universities, currentPeriod }: Re
     { title: "Course Selection", component: <CourseSelection data={registrationData} updateData={updateData} nextStep={nextStep} prevStep={prevStep} /> },
     { title: "Leisure Trips", component: <LeisureSelection data={registrationData} updateData={updateData} nextStep={nextStep} prevStep={prevStep} /> },
     { title: "Review", component: <ReviewScreen data={registrationData} updateData={updateData} nextStep={nextStep} prevStep={prevStep} /> },
-    { title: "Confirmation", component: <Confirmation data={registrationData} /> },
+    { title: "Confirmation", component: <Confirmation data={registrationData} prevStep={prevStep} /> },
   ];
 
   return (

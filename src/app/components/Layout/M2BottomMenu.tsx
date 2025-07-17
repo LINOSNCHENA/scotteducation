@@ -1,3 +1,5 @@
+"use client"; // Add this line
+//
 import Link from "next/link";
 
 export default function BottomMenu() {

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-// import Button from "../ui/button";
 import { fetchCourses } from "@/lib/api";
 import { RegistrationData, ICourse } from "@/types/Model.Universities";
 import { Button } from "../ui/button";
+import { toast } from "sonner";
 
 interface CourseSelectionProps {
   data: RegistrationData;
@@ -12,9 +12,11 @@ interface CourseSelectionProps {
 }
 
 export default function CourseSelection({ data, updateData, nextStep, prevStep }: CourseSelectionProps) {
+  
   const [courses, setCourses] = useState<ICourse[]>([]);
-  const [selectedCourses, setSelectedCourses] = useState<ICourse[]>(data.courses || []);
+    const [selectedCourses, setSelectedCourses] = useState<ICourse[]>(data.courses || []);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadCourses() {
@@ -22,7 +24,8 @@ export default function CourseSelection({ data, updateData, nextStep, prevStep }
         const fetchedCourses = await fetchCourses();
         setCourses(fetchedCourses);
       } catch (error) {
-        console.error("Failed to fetch courses:", error);
+        setError(error instanceof Error ? error.message : "Failed to fetch courses");
+        toast.error("Failed to load courses");
       } finally {
         setLoading(false);
       }
@@ -43,11 +46,16 @@ export default function CourseSelection({ data, updateData, nextStep, prevStep }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (selectedCourses.length === 0) {
+      toast.error("Please select at least one course");
+      return;
+    }
     updateData({ courses: selectedCourses });
     nextStep();
   };
 
   if (loading) return <div>Loading courses...</div>;
+  if (error) return <div className="text-red-500">Error: {error}</div>;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">

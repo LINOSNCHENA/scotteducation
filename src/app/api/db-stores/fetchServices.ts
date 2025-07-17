@@ -1,9 +1,9 @@
 // src/app/api/reviews/reviews.service.ts
 import { supabase } from "@/lib/supabase";
 import { formatDateZM } from '@/app/utils/Functions';
-import { IStudent, IUniversity } from "@/app/utils/education/Models.Universities";
 import { IOrderRequest } from "@/types/models.eshop";
 import { IReview, ISubscription, IVisit } from "@/types/Models.subscriptions";
+import { IStudent, IUniversity } from "@/types/Model.Universities";
 
 // Constants for table names
 const TABLES = {

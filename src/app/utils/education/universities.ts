@@ -1,4 +1,8 @@
-import { ISupportStaff, ICountryInfo, IUniversity } from "./Models.Universities";
+//
+// Data sources
+//
+
+import { IUniversity, ICountryInfo, ISupportStaff } from "@/types/Model.Universities";
 
 export const universities: IUniversity[] = [
     {
@@ -7,6 +11,7 @@ export const universities: IUniversity[] = [
         img: "/images/ux_pascal/1.jpg",
         highlight: "Ranked #1 in Europe for Humanities",
         ranking: "QS World #90",
+        id: '',
     },
     {
         name: "Technical University of Munich",
@@ -14,6 +19,7 @@ export const universities: IUniversity[] = [
         img: "/images/ux_pascal/2.jpg",
         highlight: "Top 5 worldwide for Engineering",
         ranking: "QS World #50",
+        id: '',
     },
     {
         name: "Charles University",
@@ -21,6 +27,7 @@ export const universities: IUniversity[] = [
         img: "/images/ux_pascal/3.jpg",
         highlight: "Founded 1348 - oldest in Central Europe",
         ranking: "QS World #300",
+        id: '',
     },
     {
         name: "University of Amsterdam",
@@ -28,6 +35,7 @@ export const universities: IUniversity[] = [
         img: "/images/ux_pascal/4.jpg",
         highlight: "Top 10 globally for Communication Studies",
         ranking: "QS World #58",
+        id: '',
     },
     {
         name: "University of Bologna",
@@ -35,6 +43,7 @@ export const universities: IUniversity[] = [
         img: "/images/ux_pascal/5.jpg",
         highlight: "World's oldest university (founded 1088)",
         ranking: "QS World #154",
+        id: '',
     },
     {
         name: "Karolinska Institute",
@@ -42,6 +51,7 @@ export const universities: IUniversity[] = [
         img: "/images/ux_pascal/6.jpg",
         highlight: "Nobel Prize in Physiology or Medicine",
         ranking: "QS World #10 (Medicine)",
+        id: '',
     },
 ];
 
