@@ -7,6 +7,7 @@ import { Table } from "@/app/components/ui/table";
 import { StudentForm } from "./StudentForm";
 import { toast } from "sonner";
 import { IStudent } from "@/types/Model.Universities";
+import { capitalizeFirstLetter } from "@/lib/functions";
 
 export default function StudentsPage() {
   const { students, loading, error, fetchStudents, addStudent, deleteStudent } = useStudentStore();
@@ -116,12 +117,12 @@ export default function StudentsPage() {
                     <Table.Row key={student.id}>
                       <Table.Cell>
                         <div className="font-medium">
-                          {student.last_name}, {student.first_name}
+                          {capitalizeFirstLetter(student.last_name)}, {capitalizeFirstLetter(student.first_name)}
                         </div>
                         <div className="text-sm text-gray-500">ID: {student.id.substring(0, 8)}</div>
                       </Table.Cell>
                       <Table.Cell>
-                        <div className="text-gray-900">{student.email}</div>
+                        <div className="text-gray-900">{capitalizeFirstLetter(student.last_name)}</div>
                         {student.phone && <div className="text-sm text-gray-500">{student.phone}</div>}
                       </Table.Cell>
                       <Table.Cell>
