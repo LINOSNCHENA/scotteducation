@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchLeisureTrips } from "@/lib/api";
 import { RegistrationData, ILeisureTrip } from "@/types/Model.Universities";
-import { Button } from "../ui/button";
+import { Button } from "../ui";
 
 interface LeisureSelectionProps {
   data: RegistrationData;

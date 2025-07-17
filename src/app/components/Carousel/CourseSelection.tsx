@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchCourses } from "@/lib/api";
 import { RegistrationData, ICourse } from "@/types/Model.Universities";
-import { Button } from "../ui/button";
+import { Button } from "../ui";
 import { toast } from "sonner";
 
 interface CourseSelectionProps {
