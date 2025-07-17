@@ -9,13 +9,13 @@ npm install lucide-react
 npm install framer-motion
 npm install @react-email/components
 npm install react-router-dom
-npm install lightningcss@latest --save-exact
+
 npm update tailwindcss @tailwindcss/oxide
 npm install @heroicons/react
 npm install @types/google.maps --save-dev
 npm install @react-google-maps/api  --save-dev
 npm i axios --save-dev
-
+npm install lightningcss@latest --save-exact
 ```
 
 ## 2. Dependances (Libraries)
@@ -55,16 +55,6 @@ npm install react-to-print@latest @types/react-to-print@latest
 npm install clsx tailwind-merge class-variance-authority
 npm install sonner
 
-```
-
-## 4. Benchmark Colors (5)
-
-```
-1. bg-green-200
-2. black
-3. bhite
-4. bg-white
-5. bg-gray-50
 ```
 
 ## 5. Important Sites(4)- AddOns (4)
