@@ -73,10 +73,7 @@ export default function TopMenu() {
           </Link>
           <Link href="/blog" className="hover:underline">
             Blog
-          </Link>
-          <Link href="/data" className="hover:underline">
-            Data
-          </Link>
+          </Link>     
         </div>
 
         <div className="flex items-center space-x-4">
