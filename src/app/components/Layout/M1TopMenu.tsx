@@ -63,7 +63,7 @@ export default function TopMenu() {
             Program
           </Link>
           <Link href="/courses" className="hover:underline">
-            Classes
+            Courses
           </Link>
           <Link href="/students" className="hover:underline">
             Students

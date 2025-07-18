@@ -7,7 +7,7 @@ import { Table } from "@/app/components/ui/table";
 import { StudentForm } from "./StudentForm";
 import { toast } from "sonner";
 import { IStudent } from "@/types/Model.Universities";
-import { capitalizeFirstLetter } from "@/lib/functions";
+import { capitalizeFirstLetter } from "@/lib/helper.functions";
 
 export default function StudentsPage() {
   const { students, loading, error, fetchStudents, addStudent, deleteStudent } = useStudentStore();
