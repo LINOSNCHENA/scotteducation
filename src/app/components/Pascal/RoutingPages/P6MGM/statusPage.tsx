@@ -133,8 +133,14 @@ const TaskExportControls = ({ tasks, selectedRowKeys }: { tasks: TaskItem[]; sel
         yPosition -= lineHeight;
       });
 
+      // const pdfBytes = await pdfDoc.save();
+      //  saveAs(new Blob([pdfBytes], { type: "application/pdf" }), "webdev_tasks.pdf");
+
       const pdfBytes = await pdfDoc.save();
-      saveAs(new Blob([pdfBytes], { type: "application/pdf" }), "webdev_tasks.pdf");
+      // Create a new Uint8Array with proper ArrayBuffer
+      const compatibleBytes = new Uint8Array(pdfBytes);
+      saveAs(new Blob([compatibleBytes], { type: "application/pdf" }), "webdev_tasks.pdf");
+
       message.success("PDF downloaded successfully");
     } catch (error) {
       console.error("PDF generation error:", error);
