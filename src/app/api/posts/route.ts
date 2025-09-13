@@ -1,13 +1,15 @@
+import { TABLE_POST } from "@/app/utils/Branding/ApiRoutes";
 import { supabase } from "@/lib/supabase";
 import { NextResponse } from "next/server";
 
+
 export async function PUT(
     request: Request,
-    { params }: { params: { id: string } }
+    context: { params: Promise<{ id: string }> }
 ) {
     try {
-        // Await the params if needed (though typically params is synchronous)
-        const { id } = params;
+        // Await the entire params object
+        const { id } = await context.params;
 
         const postData = await request.json();
 
@@ -20,7 +22,7 @@ export async function PUT(
         }
 
         const { error } = await supabase
-            .from('posts')
+            .from(TABLE_POST)
             .update(postData)
             .eq('id', id);
 
@@ -42,29 +44,34 @@ export async function PUT(
     }
 }
 
-
 export async function DELETE(
     request: Request,
-    { params }: { params: { id: string } }
+    context: { params: Promise<{ id: string }> }
 ) {
-    const { id } = params;
+    try {
+        const { id } = await context.params;
 
-    const { error } = await supabase
-        .from('posts')
-        .delete()
-        .eq('id', id);
+        const { error } = await supabase
+            .from(TABLE_POST)
+            .delete()
+            .eq('id', id);
 
-    if (error) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return error
+            ? NextResponse.json({ error: error.message }, { status: 500 })
+            : NextResponse.json({ success: true });
+
+    } catch (err) {
+        console.error('Delete error:', err);
+        return NextResponse.json(
+            { error: "Internal server error" },
+            { status: 500 }
+        );
     }
-
-    return NextResponse.json({ success: true });
 }
-
 
 export async function GET() {
     const { data, error } = await supabase
-        .from('posts')
+        .from(TABLE_POST)
         .select('*')
         .order('created_at', { ascending: false });
 

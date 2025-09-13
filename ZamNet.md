@@ -14,6 +14,7 @@ npm install @types/google.maps --save-dev
 npm install @react-google-maps/api  --save-dev
 npm i axios --save-dev
 npm install lightningcss@latest --save-exact
+
 ```
 
 ## 2. Dependances (Libraries)

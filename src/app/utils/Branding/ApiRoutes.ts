@@ -2,6 +2,9 @@
 // ## API-CRUD
 //
 
+
+export const TABLE_POST = "post"
+
 export const API_DBASE_STORES = "/api/db-stores"
 export const API_POST_CONTACT = "/api/email-contact"
 export const API_POST_ORDERS = "/api/email-orders"
