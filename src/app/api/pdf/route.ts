@@ -1,18 +1,22 @@
-// app/pdfs/route.ts
 import { generatePdf } from '@/app/utils/Functions';
 import { NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
-    const url = new URL(request.url);
-    const indexParam = url.searchParams.get('index');
-    const index = Number(indexParam ?? 0);
+    try {
+        const index = Number(new URL(request.url).searchParams.get('index')) || 0;
+        const pdfBytes = await generatePdf(index);
 
-    const pdfBytes = await generatePdf(index);
+        // Use type assertion to handle the ArrayBufferLike compatibility
+        const blob = new Blob([pdfBytes as BlobPart], { type: 'application/pdf' });
 
-    return new Response(pdfBytes, {
-        headers: {
-            'Content-Type': 'application/pdf',
-            'Content-Disposition': `attachment; filename="pdf-${index + 1}.pdf"`,
-        },
-    });
+        return new Response(blob, {
+            headers: {
+                'Content-Type': 'application/pdf',
+                'Content-Disposition': `attachment; filename="document-${index + 1}.pdf"`,
+            },
+        });
+    } catch (error) {
+        console.error('PDF generation failed:', error);
+        return new Response('Failed to generate PDF', { status: 500 });
+    }
 }
