@@ -53,7 +53,7 @@ export const universities: IUniversity[] = [
     { id: "13", name: "University of Lausanne", country: "Switzerland", img: dataLocation + "/10.png", highlight: "QS World #134", ranking: "QS World #134" },
 
     // Hungary
-    { id: "14", name: "Eötvös Loránd University (ELTE)", country: "Hungary", img: dataLocation + "/10.png", highlight: "Founded 1635 – Budapest’s largest and most prestigious", ranking: "QS World #601–650" },
+    { id: "14", name: "Eötvös Loránd University (ELTE)", country: "Hungary", img: dataLocation + "/5.png", highlight: "Founded 1635 – Budapest’s largest and most prestigious", ranking: "QS World #601–650" },
     { id: "15", name: "University of Debrecen", country: "Hungary", img: dataLocation + "/11.jpg", highlight: "Strong in medicine and sciences", ranking: "QS World #701–750" },
     { id: "16", name: "University of Szeged", country: "Hungary", img: dataLocation + "/1.jpg", highlight: "Top research university in southern Hungary", ranking: "QS World #601–650" },
 
@@ -63,7 +63,7 @@ export const universities: IUniversity[] = [
     { id: "19", name: "Université catholique de Louvain (UCL)", country: "Belgium", img: dataLocation + "/2.png", highlight: "Leading French-speaking university", ranking: "QS World #188" },
 
     // Slovakia
-    { id: "20", name: "Comenius University", country: "Slovakia", img: dataLocation + "/2.jpg", highlight: "Slovakia’s oldest and largest university", ranking: "QS EECA #51–60" },
+    { id: "20", name: "Comenius University", country: "Slovakia", img: dataLocation + "/8.jpg", highlight: "Slovakia’s oldest and largest university", ranking: "QS EECA #51–60" },
     { id: "21", name: "Slovak University of Technology", country: "Slovakia", img: dataLocation + "/3.gif", highlight: "Leading technical university in Bratislava", ranking: "QS EECA #101–110" },
     { id: "22", name: "University of Žilina", country: "Slovakia", img: dataLocation + "/4.jpg", highlight: "Strong in transport and communications engineering", ranking: "QS EECA #151–200" },
 

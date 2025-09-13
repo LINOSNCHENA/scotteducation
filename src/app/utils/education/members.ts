@@ -3,15 +3,15 @@ import { ISupportStaff } from "@/types/Model.Universities";
 export const mockStaff: ISupportStaff[] = [
     {
         id: 1,
-        name: "Elena Petrova",
-        position: "EU Admissions Specialist",
-        bio: "10+ years helping students navigate university applications across Europe. Fluent in 5 EU languages.",
+        name: "Pascal Bassey",
+        position: "Student Success Specialist",
+        bio: "8+ years helping students navigate university applications across Europe. Fluent in 5 EU languages.",
         photo: "/images/ux_pascal/staff/1.jpg",
         languages: ["English", "French", "Spanish", "Italian"],
     },
     {
         id: 2,
-        name: "Yang Novák",
+        name: "Sabina Bassey",
         position: "Visa & Accommodation Coordinator",
         bio: "Expert in EU student visa requirements and finding perfect student housing in 15+ countries.",
         photo: "/images/ux_pascal/staff/2.jpg",
