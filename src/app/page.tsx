@@ -5,7 +5,8 @@ import { Button } from "./components/Pascal/RoutingPages/P4PostOfficer/ui/button
 import { COMP_COPYRIGHT, COMP_PHONE } from "./utils/Branding/DataPascal";
 import { useEffect, useState } from "react";
 import { COMP_EMAIL, COMP_MOBILE } from "./utils/Branding/DataPascal";
-import { countries, universities } from "./utils/education/universities";
+import { universities, universitiesLogos } from "./utils/education/universities";
+import { countries } from "./utils/education/nations";
 import React from "react";
 import Link from "next/link";
 import { ISupportStaff } from "@/types/Model.Universities";
@@ -67,22 +68,9 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Our Partner Universities</h2>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center">
-            {[
-              "/images/ux_pascal/6.jpg",
-              "/images/ux_pascal/3.jpg",
-              "/images/ux_pascal/4.jpg",
-              "/images/ux_pascal/5.jpg",
-              "/images/ux_pascal/6.jpg",
-              "/images/ux_pascal/4.jpg",
-              "/images/ux_pascal/7.jpg",
-              "/images/ux_pascal/6.jpg",
-              "/images/ux_pascal/3.jpg",
-              "/images/ux_pascal/3.jpg",
-              "/images/ux_pascal/4.jpg",
-              "/images/ux_pascal/4.jpg",
-            ].map((logo, i) => (
+            {universitiesLogos.map((logo, i) => (
               <div key={i} className="flex justify-center p-4 hover:scale-105 transition-transform">
-                <Image src={logo} alt="University logo" width={120} height={80} className="object-contain h-12" />
+                <Image src={logo} alt="University logo" width={220} height={180} className="object-contain h-12" />
               </div>
             ))}
           </div>

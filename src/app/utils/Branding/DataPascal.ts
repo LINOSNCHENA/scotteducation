@@ -1,7 +1,7 @@
 //
 //  Company Data
 // 
-export const APP_TITLE = "Scotteducation Ltd";
+export const APP_TITLE = "Scott Education World";
 export const APP_DESCRIPTION = "ScotEdu Ltd";
 export const COMP_MOBILE = "+42075779173";
 export const COMP_PHONE = "+420957699357";
