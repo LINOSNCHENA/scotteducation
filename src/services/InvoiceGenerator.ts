@@ -265,7 +265,12 @@ Email: ${COMP_EMAIL}   |   WhatsApp: ${COMP_MOBILE}| `;
     page.drawText('Project Officer | Case Officer ', { x: marginLeft, y, size: fontSizeNormal, font, color: rgb(0, 0, 0.6) });
 
     // Save PDF with safe filename
-    const pdfBytes = await pdfDoc.save();
+    // const pdfBytes = await pdfDoc.save();
     const safeName = (order.customer_name || 'customer').replace(/[^a-z0-9]/gi, '_').toLowerCase();
-    saveAs(new Blob([pdfBytes], { type: 'application/pdf' }), `Invoice-${safeName}-${Date.now()}.pdf`);
+    //  saveAs(new Blob([pdfBytes], { type: 'application/pdf' }), `Invoice-${safeName}-${Date.now()}.pdf`);
+
+    const pdfBytes = await pdfDoc.save();
+    // Create a new Uint8Array with proper ArrayBuffer
+    const compatibleBytes = new Uint8Array(pdfBytes);
+    saveAs(new Blob([compatibleBytes], { type: "application/pdf" }), `Invoice-${safeName}-${Date.now()}.pdf`);
 }
